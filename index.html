@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>lilaas | Agentes de IA Inteligentes para WhatsApp</title>
+    <meta name="description" content="Automatize seu atendimento, vendas e suporte no WhatsApp com agentes de IA personalizados. A lilaas transforma sua comunicação com clientes.">
+    <meta name="keywords" content="IA, inteligência artificial, WhatsApp, automação, chatbot, atendimento ao cliente, startup, lilaas">
+    <meta name="author" content="lilaas">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lilaas.com/">
+    <meta property="og:title" content="lilaas | Agentes de IA Inteligentes para WhatsApp">
+    <meta property="og:description" content="Automatize seu atendimento, vendas e suporte no WhatsApp com agentes de IA personalizados.">
+    <meta property="og:image" content="https://www.lilaas.com/logo_completo.png"> <!-- Use an absolute URL to your logo image -->
+    <meta property="og:site_name" content="lilaas">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.lilaas.com/">
+    <meta name="twitter:title" content="lilaas | Agentes de IA Inteligentes para WhatsApp">
+    <meta name="twitter:description" content="Automatize seu atendimento, vendas e suporte no WhatsApp com agentes de IA personalizados.">
+    <meta name="twitter:image" content="https://www.lilaas.com/logo_completo.png"> <!-- Use an absolute URL to your logo image -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <!-- Fonts and Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10" xintegrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+
+    <style>
+        /* Custom styles to integrate brand colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffafa; /* snow */
+            color: #2d3748; /* charcoal grey */
+        }
+        .bg-lilac { background-color: #5e1b68; }
+        .text-lilac { color: #5e1b68; }
+        .border-lilac { border-color: #5e1b68; }
+        .ring-lilac:focus {
+            --tw-ring-color: #5e1b68;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #5e1b68, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#">
+                <img src="logo_completo.png" alt="Logo lilaas" class="h-8 md:h-10" onerror="this.onerror=null; this.src='https://placehold.co/200x50/5e1b68/fffafa?text=lilaas';">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-lilac transition-colors duration-300">Funcionalidades</a>
+                <a href="#use-cases" class="text-gray-600 hover:text-lilac transition-colors duration-300">Casos de Uso</a>
+                <a href="#contact" class="text-gray-600 hover:text-lilac transition-colors duration-300">Contato</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-lilac text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition-opacity duration-300">
+                Entrar na Lista de Espera
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#features" class="block py-2 text-gray-600 hover:text-lilac">Funcionalidades</a>
+            <a href="#use-cases" class="block py-2 text-gray-600 hover:text-lilac">Casos de Uso</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-lilac">Contato</a>
+            <a href="#contact" class="block mt-2 w-full text-center bg-lilac text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90">
+                Lista de Espera
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 md:pt-48 md:pb-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-tight">
+                    Converse com seus clientes no <span class="gradient-text">próximo nível</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 mb-10">
+                    Implemente agentes de IA no seu WhatsApp para automatizar o atendimento, qualificar leads e vender 24 horas por dia, 7 dias por semana.
+                </p>
+                <a href="#contact" class="bg-lilac text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                    Quero automatizar meu negócio
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Uma plataforma, infinitas possibilidades</h2>
+                    <p class="text-lg text-gray-500 mt-4">Tudo que você precisa para criar experiências conversacionais incríveis.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-lilac text-white h-12 w-12 rounded-lg flex items-center justify-center mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Integração Simples</h3>
+                        <p class="text-gray-600">Conecte seu número de WhatsApp em minutos, sem precisar de conhecimentos técnicos. É plugar e usar.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                        <div class="bg-lilac text-white h-12 w-12 rounded-lg flex items-center justify-center mb-5">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"/><path d="M14 14l3.5 3.5"/><path d="M10 7v3h3"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Atendimento 24/7</h3>
+                        <p class="text-gray-600">Seu negócio nunca para. Nossos agentes de IA estão sempre online para atender seus clientes, a qualquer hora do dia.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+                         <div class="bg-lilac text-white h-12 w-12 rounded-lg flex items-center justify-center mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z"/><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M12 12v6"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Personalização Total</h3>
+                        <p class="text-gray-600">Treine a IA com seus próprios dados, defina o tom de voz e crie fluxos de conversa que refletem a identidade da sua marca.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Feito para o seu tipo de negócio</h2>
+                    <p class="text-lg text-gray-500 mt-4">De e-commerces a agências, a lilaas se adapta à sua necessidade.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg p-8 shadow-md">
+                        <h4 class="text-2xl font-bold text-lilac mb-4">E-commerce</h4>
+                        <ul class="space-y-3 text-gray-700 list-disc list-inside">
+                            <li>Rastreamento de pedidos em tempo real</li>
+                            <li>Recuperação de carrinhos abandonados</li>
+                            <li>Recomendação de produtos personalizada</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-8 shadow-md">
+                        <h4 class="text-2xl font-bold text-lilac mb-4">Serviços e Agendamentos</h4>
+                        <ul class="space-y-3 text-gray-700 list-disc list-inside">
+                            <li>Agendamento e remarcação de horários</li>
+                            <li>Envio de lembretes automáticos</li>
+                            <li>Qualificação de clientes para orçamentos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with HTMX -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto text-center">
+                    <img src="logo.png" alt="Logo Icon lilaas" class="h-16 mx-auto mb-4" onerror="this.onerror=null; this.src='https://placehold.co/64x64/5e1b68/fffafa?text=l';">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Saia na frente da concorrência</h2>
+                    <p class="text-lg text-gray-500 mb-8">
+                        Estamos liberando o acesso aos poucos. Inscreva-se na lista de espera e seja um dos primeiros a transformar seu atendimento.
+                    </p>
+                    
+                    <div id="form-container" class="w-full">
+                        <form hx-post="/subscribe-endpoint" hx-target="#form-container" hx-swap="innerHTML" class="w-full max-w-lg mx-auto">
+                            <div class="flex flex-col sm:flex-row items-center gap-4">
+                                <input type="email" name="email" required class="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-lilac transition" placeholder="seu.melhor@email.com">
+                                <button type="submit" class="w-full sm:w-auto flex-shrink-0 bg-lilac text-white font-bold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity duration-300">
+                                    Inscrever-se
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; <span id="year"></span> lilaas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- This template will be returned by the fake server on success -->
+    <template id="success-message">
+        <div class="text-center p-4 bg-green-50 border border-green-200 rounded-lg">
+            <h3 class="text-xl font-bold text-green-800">Obrigado! ✅</h3>
+            <p class="text-green-700">Você foi adicionado à nossa lista de espera. Entraremos em contato em breve!</p>
+        </div>
+    </template>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // HTMX request simulation
+        // This simulates a server response for the demo, as we don't have a real backend.
+        // In a real application, your server at "/subscribe-endpoint" would return this HTML.
+        document.body.addEventListener('htmx:configRequest', function(evt) {
+            if (evt.detail.path === '/subscribe-endpoint') {
+                // Prevent the actual HTTP request
+                evt.preventDefault();
+
+                // Get the target element
+                const target = document.querySelector(evt.detail.target);
+                if (target) {
+                    // Get the success message from the template
+                    const successTemplate = document.getElementById('success-message');
+                    // Replace the target's content with the success message
+                    target.innerHTML = successTemplate.innerHTML;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
