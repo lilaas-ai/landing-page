@@ -110,6 +110,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update regular stats for other pages
     updateStats();
     
+    // Update feature section stats
+    updateFeatureStats();
+    
+    // Initialize organic glow effect
+    initOrganicGlow();
+    
     // Update social media links
     updateSocialLinks();
     
@@ -462,6 +468,140 @@ function updateAgentResources() {
     
     // Start observing the agent resources section
     observer.observe(agentResourcesSection);
+}
+
+function updateFeatureStats() {
+    // Find all stat-clients elements (including those in features section)
+    const clientElements = document.querySelectorAll('.stat-clients');
+    clientElements.forEach(element => {
+        // Only animate if it's not already been animated (check if it's still "0+")
+        if (element.textContent === '0+') {
+            animateNumber(element, CONFIG.stats.clients, '+');
+        }
+    });
+    
+    // Find all service-cost-savings elements
+    const costSavingsElements = document.querySelectorAll('.service-cost-savings');
+    costSavingsElements.forEach(element => {
+        // Only animate if it's not already been animated (check if it's still "0%")
+        if (element.textContent === '0%') {
+            animateNumber(element, CONFIG.serviceResults.costSavings, '%');
+        }
+    });
+}
+
+function initOrganicGlow() {
+    const heroButton = document.querySelector('.hero-cta-glow');
+    if (!heroButton) return;
+    
+    // Create primary glow element
+    const glowElement = document.createElement('div');
+    glowElement.className = 'organic-glow-element';
+    glowElement.style.cssText = `
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        background: radial-gradient(circle at 50% 50%, 
+                                   rgba(94, 27, 104, 0.5) 0%, 
+                                   rgba(94, 27, 104, 0.3) 30%, 
+                                   rgba(124, 58, 237, 0.2) 60%, 
+                                   transparent 85%);
+        opacity: 1;
+        pointer-events: none;
+        border-radius: inherit;
+        z-index: -1;
+        filter: blur(20px);
+    `;
+    
+    // Create secondary glow element for layered effect
+    const glowElement2 = document.createElement('div');
+    glowElement2.className = 'organic-glow-element-2';
+    glowElement2.style.cssText = `
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        background: radial-gradient(circle at 50% 50%, 
+                                   rgba(124, 58, 237, 0.4) 0%, 
+                                   rgba(94, 27, 104, 0.2) 40%, 
+                                   rgba(124, 58, 237, 0.1) 70%, 
+                                   transparent 90%);
+        opacity: 1;
+        pointer-events: none;
+        border-radius: inherit;
+        z-index: -2;
+        filter: blur(25px);
+    `;
+    
+    heroButton.appendChild(glowElement);
+    heroButton.appendChild(glowElement2);
+    
+    // Animation variables
+    let time = 0;
+    let animationId;
+    
+    // Organic movement function
+    function animateGlow() {
+        time += 0.015;
+        
+        // Primary glow movement (slower, more dramatic)
+        const x1 = 50 + 25 * Math.sin(time) + 12 * Math.sin(time * 1.2);
+        const y1 = 50 + 20 * Math.cos(time * 0.7) + 10 * Math.sin(time * 1.5);
+        const x2 = 50 + 18 * Math.cos(time * 1.0) + 15 * Math.sin(time * 0.8);
+        const y2 = 50 + 22 * Math.sin(time * 1.1) + 8 * Math.cos(time * 1.3);
+        
+        // Secondary glow movement (faster, counter-rotating)
+        const x3 = 50 + 20 * Math.sin(time * 1.3) + 8 * Math.cos(time * 0.9);
+        const y3 = 50 + 18 * Math.cos(time * 1.4) + 12 * Math.sin(time * 1.1);
+        const x4 = 50 + 15 * Math.cos(time * 0.8) + 10 * Math.sin(time * 1.6);
+        const y4 = 50 + 20 * Math.sin(time * 0.9) + 6 * Math.cos(time * 1.2);
+        
+        // Blend positions for smoother movement
+        const blend1 = (Math.sin(time * 0.4) + 1) / 2;
+        const blend2 = (Math.sin(time * 0.6) + 1) / 2;
+        
+        const x = x1 + (x2 - x1) * blend1;
+        const y = y1 + (y2 - y1) * blend1;
+        const x2_glow = x3 + (x4 - x3) * blend2;
+        const y2_glow = y3 + (y4 - y3) * blend2;
+        
+        // Vary opacity and size organically
+        const opacity1 = 0.4 + 0.4 * Math.sin(time * 0.6);
+        const opacity2 = 0.3 + 0.3 * Math.sin(time * 0.8);
+        const scale1 = 0.9 + 0.15 * Math.sin(time * 1.0);
+        const scale2 = 0.95 + 0.12 * Math.sin(time * 1.2);
+        
+        // Apply organic movement to primary glow
+        glowElement.style.background = `radial-gradient(circle at ${x}% ${y}%, 
+                                   rgba(94, 27, 104, ${opacity1}) 0%, 
+                                   rgba(94, 27, 104, ${opacity1 * 0.6}) 30%, 
+                                   rgba(124, 58, 237, ${opacity1 * 0.4}) 60%, 
+                                   transparent 85%)`;
+        glowElement.style.transform = `scale(${scale1})`;
+        
+        // Apply organic movement to secondary glow
+        glowElement2.style.background = `radial-gradient(circle at ${x2_glow}% ${y2_glow}%, 
+                                   rgba(124, 58, 237, ${opacity2}) 0%, 
+                                   rgba(94, 27, 104, ${opacity2 * 0.5}) 40%, 
+                                   rgba(124, 58, 237, ${opacity2 * 0.25}) 70%, 
+                                   transparent 90%)`;
+        glowElement2.style.transform = `scale(${scale2})`;
+        
+        animationId = requestAnimationFrame(animateGlow);
+    }
+    
+    // Start animation
+    animateGlow();
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', () => {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
+    });
 }
 
 // Export for use in other scripts

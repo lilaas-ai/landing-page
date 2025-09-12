@@ -91,7 +91,7 @@
     opacity: 0;
 }
 
-/* Natural Directional Hover Effect */
+/* Static glow for navbar buttons */
 .pulse-glow {
     position: relative;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -118,6 +118,12 @@
 
 .pulse-glow:hover::after {
     opacity: 1;
+}
+
+/* Hero button container for JavaScript glow */
+.hero-cta-glow {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Service and Agent Cards */
@@ -324,4 +330,27 @@
 
 .hamburger-icon.is-active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Infinite Scrolling Animation for Company Logos */
+.animate-scroll {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 3rem;
+    animation: scroll 30s linear infinite;
+    width: 300%;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+    animation-play-state: paused;
 }
