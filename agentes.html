@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentes de IA - lilaas.ai</title>
+    <meta name="description" content="Conheça nossos agentes conversacionais de IA especializados em WhatsApp e Telegram. Soluções inteligentes para atendimento, vendas e suporte.">
+    <meta name="keywords" content="agentes IA, chatbots WhatsApp, bots Telegram, agentes conversacionais, IA conversacional, atendimento automatizado">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="config.js?v=1.9"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="logo.svg" alt="lilaas.ai" class="logo mr-3">
+                        <img src="lilaas-text.svg" alt="lilaas.ai" class="company-name">
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Início</a>
+                    <a href="sobre.html" class="text-gray-700 hover:text-primary transition-colors">Sobre</a>
+                    <a href="servicos.html" class="text-gray-700 hover:text-primary transition-colors">Serviços</a>
+                    <a href="agentes.html" class="text-primary font-semibold">Agentes IA</a>
+                    <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
+                    <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
+                        Teste Grátis →
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-primary transition-colors p-2 flex items-center justify-center">
+                        <div class="hamburger-icon" :class="{ 'is-active': mobileMenuOpen }">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform -translate-y-2"
+             x-transition:enter-end="opacity-100 transform translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 transform translate-y-0"
+             x-transition:leave-end="opacity-0 transform -translate-y-2"
+             class="md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Início</a>
+                <a href="sobre.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Sobre</a>
+                <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
+                <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-primary font-semibold">Agentes IA</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Agentes de IA <span class="text-primary">Especializados</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossos agentes conversacionais são treinados especificamente para WhatsApp e Telegram, 
+                    oferecendo experiências naturais e eficientes para seus clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Chat Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        Veja Nossos Agentes em Ação
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Nossos agentes de IA são capazes de entender contexto, manter conversas naturais 
+                        e resolver problemas complexos, tudo isso enquanto aprendem com cada interação.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-gray-700">Compreensão de linguagem natural</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-gray-700">Integração com sistemas existentes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-gray-700">Aprendizado contínuo e melhoria</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- WhatsApp-style Chat Demo -->
+                <div class="bg-gray-100 rounded-2xl p-4 max-w-sm mx-auto shadow-lg" style="background: linear-gradient(135deg, #e5ddd5 0%, #f0f0f0 100%);">
+                    <!-- WhatsApp Header -->
+                    <div class="flex items-center mb-4 pb-3 border-b border-gray-300">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 text-sm">lilaas.ai</h4>
+                            <p class="text-xs text-green-600">online</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div id="chat-container" class="space-y-3 h-80 overflow-y-auto scrollbar-hide">
+                        <div class="chat-bubble flex justify-start" style="animation-delay: 0s;">
+                            <div class="bg-white rounded-2xl rounded-tl-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-gray-800 text-sm">Olá! Como posso ajudá-lo hoje?</p>
+                                <p class="text-xs text-gray-500 mt-1">10:30</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-bubble flex justify-end" style="animation-delay: 1s;">
+                            <div class="bg-green-500 rounded-2xl rounded-tr-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-white text-sm">Preciso de ajuda com meu pedido #12345</p>
+                                <p class="text-xs text-green-100 mt-1">10:31</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-bubble flex justify-start" style="animation-delay: 2s;">
+                            <div class="bg-white rounded-2xl rounded-tl-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-gray-800 text-sm">Claro! Vou verificar o status do seu pedido. Um momento...</p>
+                                <p class="text-xs text-gray-500 mt-1">10:31</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-bubble flex justify-start" style="animation-delay: 3s;">
+                            <div class="bg-white rounded-2xl rounded-tl-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-gray-800 text-sm">Seu pedido foi enviado ontem e está a caminho. O código de rastreamento é BR123456789. Posso ajudar com mais alguma coisa?</p>
+                                <p class="text-xs text-gray-500 mt-1">10:32</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-bubble flex justify-end" style="animation-delay: 4s;">
+                            <div class="bg-green-500 rounded-2xl rounded-tr-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-white text-sm">Perfeito! Obrigado pela ajuda</p>
+                                <p class="text-xs text-green-100 mt-1">10:33</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-bubble flex justify-start" style="animation-delay: 5s;">
+                            <div class="bg-white rounded-2xl rounded-tl-sm p-3 max-w-xs shadow-sm">
+                                <p class="text-gray-800 text-sm">De nada! Foi um prazer ajudá-lo. Tenha um ótimo dia! 😊</p>
+                                <p class="text-xs text-gray-500 mt-1">10:33</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Types Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Tipos de Agentes Disponíveis
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Desenvolvemos agentes especializados para diferentes necessidades do seu negócio
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Agent 1 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente de Atendimento</h3>
+                    <p class="text-gray-600 mb-6">
+                        Especializado em resolver dúvidas, fornecer informações e direcionar clientes 
+                        para os canais corretos.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• FAQ inteligente</li>
+                        <li>• Triagem de solicitações</li>
+                        <li>• Escalação para humanos</li>
+                        <li>• Histórico de conversas</li>
+                    </ul>
+                </div>
+
+                <!-- Agent 2 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente de Vendas</h3>
+                    <p class="text-gray-600 mb-6">
+                        Focado em qualificar leads, apresentar produtos e conduzir o processo 
+                        de vendas de forma natural.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Qualificação de leads</li>
+                        <li>• Apresentação de produtos</li>
+                        <li>• Agendamento de reuniões</li>
+                        <li>• Follow-up automático</li>
+                    </ul>
+                </div>
+
+                <!-- Agent 3 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente de Suporte Técnico</h3>
+                    <p class="text-gray-600 mb-6">
+                        Especializado em resolver problemas técnicos, guiar instalações e 
+                        fornecer soluções passo a passo.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Diagnóstico de problemas</li>
+                        <li>• Guias passo a passo</li>
+                        <li>• Integração com base de conhecimento</li>
+                        <li>• Coleta de logs e informações</li>
+                    </ul>
+                </div>
+
+                <!-- Agent 4 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente de Agendamento</h3>
+                    <p class="text-gray-600 mb-6">
+                        Gerencia calendários, agenda reuniões e envia lembretes automáticos 
+                        para otimizar sua agenda.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Verificação de disponibilidade</li>
+                        <li>• Confirmação de agendamentos</li>
+                        <li>• Lembretes automáticos</li>
+                        <li>• Reagendamento inteligente</li>
+                    </ul>
+                </div>
+
+                <!-- Agent 5 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente Financeiro</h3>
+                    <p class="text-gray-600 mb-6">
+                        Lida com cobranças, consultas de saldo, processamento de pagamentos 
+                        e questões financeiras.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Consulta de faturas</li>
+                        <li>• Processamento de pagamentos</li>
+                        <li>• Negociação de prazos</li>
+                        <li>• Relatórios financeiros</li>
+                    </ul>
+                </div>
+
+                <!-- Agent 6 -->
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Agente Personalizado</h3>
+                    <p class="text-gray-600 mb-6">
+                        Desenvolvemos agentes sob medida para necessidades específicas 
+                        do seu negócio e processos únicos.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Desenvolvimento customizado</li>
+                        <li>• Integração com sistemas específicos</li>
+                        <li>• Treinamento especializado</li>
+                        <li>• Suporte dedicado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Platform Integration Section -->
+    <section class="py-20 bg-white agent-resources-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Integração com WhatsApp & Telegram
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossos agentes funcionam perfeitamente nas principais plataformas de mensagens
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2">WhatsApp Business</h3>
+                                <p class="text-gray-600">
+                                    Integração completa com WhatsApp Business API, incluindo mensagens 
+                                    de texto, mídia, botões e listas interativas.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2">Telegram Bot</h3>
+                                <p class="text-gray-600">
+                                    Bots nativos do Telegram com suporte a comandos, inline keyboards, 
+                                    webhooks e todas as funcionalidades da plataforma.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 rounded-lg p-8">
+                    <h3 class="text-xl font-semibold mb-6 text-center">Recursos Disponíveis</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1 agent-availability">24/7</div>
+                            <div class="text-sm text-gray-600">Disponibilidade</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1 agent-conversations">0+</div>
+                            <div class="text-sm text-gray-600">Conversas simultâneas</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1 agent-languages">0</div>
+                            <div class="text-sm text-gray-600">Idiomas suportados</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-1 agent-uptime">0%</div>
+                            <div class="text-sm text-gray-600">Uptime garantido</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Pronto para ter seu próprio agente de IA?
+            </h2>
+            <p class="text-xl text-purple-100 mb-8">
+                Teste grátis por 14 dias e veja como nossos agentes podem transformar seu atendimento
+            </p>
+            <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
+                Teste Grátis Agora →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="logo.svg" alt="lilaas.ai" class="logo logo-white mr-3">
+                        <img src="lilaas-text.svg" alt="lilaas.ai" class="company-name company-name-white">
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Transformando negócios com automação inteligente e agentes conversacionais de IA.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Início</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-white transition-colors">Serviços</a></li>
+                        <li><a href="agentes.html" class="text-gray-400 hover:text-white transition-colors">Agentes IA</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politica-privacidade.html" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos-servico.html" class="text-gray-400 hover:text-white transition-colors">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="contact-email">contato@lilaas.ai</li>
+                        <li class="contact-phone">+55 (11) 99999-9999</li>
+                        <li class="contact-address">São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span class="copyright-year">2024</span> <span class="copyright-company">lilaas.ai</span>. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('mobileMenuOpen', () => ({
+                mobileMenuOpen: false
+            }))
+        })
+        
+        // Natural hover effect for buttons
+        document.querySelectorAll('.pulse-glow').forEach(button => {
+            button.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                this.style.setProperty('--mouse-x', x + '%');
+                this.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+        
+        // Auto-scroll chat functionality
+        const chatContainer = document.getElementById('chat-container');
+        let isUserScrolling = false;
+        let autoScrollTimeout;
+        
+        // Function to scroll to bottom smoothly
+        function scrollToBottom() {
+            if (!isUserScrolling) {
+                chatContainer.scrollTo({
+                    top: chatContainer.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Detect when user manually scrolls
+        chatContainer.addEventListener('scroll', function() {
+            isUserScrolling = true;
+            clearTimeout(autoScrollTimeout);
+            
+            // Reset auto-scroll after user stops scrolling for 2 seconds
+            autoScrollTimeout = setTimeout(() => {
+                isUserScrolling = false;
+            }, 2000);
+        });
+        
+        // Auto-scroll when new messages appear (only after screen is full)
+        const chatBubbles = document.querySelectorAll('.chat-bubble');
+        chatBubbles.forEach((bubble, index) => {
+            const delay = (index + 1) * 1000; // 1 second per message
+            
+            // Only auto-scroll after the 4th message (when screen is full)
+            if (index >= 3) {
+                setTimeout(() => {
+                    scrollToBottom();
+                }, delay);
+            }
+        });
+    </script>
+</body>
+</html>

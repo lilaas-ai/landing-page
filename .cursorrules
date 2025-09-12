@@ -1,0 +1,63 @@
+# PRODUCT REQUIREMENTS DOCUMENT
+
+This document will work as the main guide for building this landing page.
+
+## Agent Instructions
+
+Act as a senior frontend developer with great insight into UI and UX.
+
+## DESCRIPTION
+
+This landing page will be used ad the main entry point for my startup, lilaas.ai.
+
+We provide AI automation services and also develop AI conversational agents, that run on platforms like WhatsApp and Telegram.
+
+
+## SEO
+
+The page must be compatible with SEO tools. Make sure the page can be found in Google and that Meta can access this page to verify the authenticity of the business.
+
+## Config
+
+Create a config.yaml file to populate the pages with any necessary external info (like contact email, form submission urls etc)
+
+## REACTIVITY
+
+Use htmx on the html files to manage reactivity on the page.
+
+Feel free to use other JS libraries to implement more reactivity or some other nice functionalities to the page.
+
+## Styling
+
+Feel free to use CSS libraries like TailwindCSS to the page.
+
+But remember, this page is STATIC (and will be hosted on GitHub Pages)
+
+Feel free to use the images in this dir to style the page.
+
+The main color of the startup is #5e1b68.
+
+The background must be light (but not completely white, something like snow is better).
+
+## Pages
+
+Divide the main landing page into sections. Follow the examples i will give you. 
+
+Add some other pages to the site, namely:
+
+- About us (with info about the 3 files)
+- Automation services
+- AI agents
+- Contact
+
+This pages structure is malleable, use your expertise to build the best design.
+
+Always cite results in the pages, to make sure the conversion is high in the page.
+
+## Language
+
+The page will be written in brazilian portuguese (pt_br)
+
+## Mobile
+
+The page must work seamlessly in mobile. 

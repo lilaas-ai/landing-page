@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Serviço - lilaas.ai</title>
+    <meta name="description" content="Termos de Serviço da lilaas.ai - Condições de uso dos nossos serviços de automação com IA e agentes conversacionais.">
+    <meta name="keywords" content="termos de serviço, condições de uso, lilaas.ai, automação IA">
+    <meta name="author" content="lilaas.ai">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lilaas.ai/termos-servico.html">
+    <meta property="og:title" content="Termos de Serviço - lilaas.ai">
+    <meta property="og:description" content="Termos de Serviço da lilaas.ai - Condições de uso dos nossos serviços de automação com IA e agentes conversacionais.">
+    <meta property="og:image" content="logo_completo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lilaas.ai/termos-servico.html">
+    <meta property="twitter:title" content="Termos de Serviço - lilaas.ai">
+    <meta property="twitter:description" content="Termos de Serviço da lilaas.ai - Condições de uso dos nossos serviços de automação com IA e agentes conversacionais.">
+    <meta property="twitter:image" content="logo_completo.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="config.js?v=1.9"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="lilaas.ai" class="logo mr-3">
+                        <img src="lilaas-text.svg" alt="lilaas.ai" class="company-name">
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="sobre.html" class="text-gray-700 hover:text-primary transition-colors">Sobre</a>
+                    <a href="servicos.html" class="text-gray-700 hover:text-primary transition-colors">Serviços</a>
+                    <a href="agentes.html" class="text-gray-700 hover:text-primary transition-colors">Agentes IA</a>
+                    <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
+                    <a href="index.html#demo" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all pulse-glow">
+                        Teste Grátis →
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-primary transition-colors p-2 flex items-center justify-center">
+                        <div class="hamburger-icon" :class="{ 'is-active': mobileMenuOpen }">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform -translate-y-2"
+             x-transition:enter-end="opacity-100 transform translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 transform translate-y-0"
+             x-transition:leave-end="opacity-0 transform -translate-y-2"
+             class="md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-2 space-y-2">
+                <a href="sobre.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Sobre</a>
+                <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
+                <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Agentes IA</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
+                <a href="index.html#demo" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12 pt-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Termos de Serviço
+                </h1>
+                <p class="text-xl text-gray-600">
+                    Última atualização: <span class="copyright-year">2024</span>
+                </p>
+            </div>
+
+            <!-- Content -->
+            <div class="prose prose-lg max-w-none">
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. Aceitação dos Termos</h2>
+                    <p class="text-gray-700 mb-4">
+                        Estes Termos de Serviço ("Termos") regem o uso dos serviços oferecidos pela lilaas.ai ("Empresa", "nós", "nossa" ou "nosso"). Ao acessar ou utilizar nossos serviços, você concorda em cumprir e estar vinculado a estes Termos.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Se você não concordar com qualquer parte destes Termos, não deve utilizar nossos serviços. Estes Termos constituem um acordo legal entre você e a lilaas.ai.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. Descrição dos Serviços</h2>
+                    <p class="text-gray-700 mb-4">
+                        A lilaas.ai oferece os seguintes serviços:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li><strong>Agentes Conversacionais de IA:</strong> Desenvolvimento e implementação de agentes inteligentes para WhatsApp, Telegram e outras plataformas de mensagens</li>
+                        <li><strong>Automação Empresarial:</strong> Soluções de automação com inteligência artificial para processos empresariais</li>
+                        <li><strong>Consultoria em IA:</strong> Serviços de consultoria para implementação de soluções de inteligência artificial</li>
+                        <li><strong>Suporte Técnico:</strong> Suporte e manutenção dos serviços implementados</li>
+                        <li><strong>Treinamento:</strong> Capacitação de equipes para utilização das soluções implementadas</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. Elegibilidade</h2>
+                    <p class="text-gray-700 mb-4">
+                        Para utilizar nossos serviços, você deve:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Ter pelo menos 18 anos de idade ou ser representado por um responsável legal</li>
+                        <li>Possuir capacidade legal para celebrar contratos</li>
+                        <li>Fornecer informações verdadeiras e atualizadas</li>
+                        <li>Concordar com estes Termos e nossa Política de Privacidade</li>
+                        <li>Não estar impedido de receber nossos serviços sob a lei aplicável</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. Conta e Registro</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">4.1 Criação de Conta</h3>
+                    <p class="text-gray-700 mb-4">
+                        Para utilizar nossos serviços, você pode precisar criar uma conta. Você é responsável por:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Manter a confidencialidade de suas credenciais de acesso</li>
+                        <li>Todas as atividades que ocorrem em sua conta</li>
+                        <li>Notificar-nos imediatamente sobre qualquer uso não autorizado</li>
+                        <li>Fornecer informações precisas e atualizadas</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">4.2 Verificação de Identidade</h3>
+                    <p class="text-gray-700 mb-4">
+                        Podemos solicitar documentos para verificar sua identidade e informações fornecidas, especialmente para serviços empresariais.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Uso Aceitável</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">5.1 Uso Permitido</h3>
+                    <p class="text-gray-700 mb-4">Você pode utilizar nossos serviços para:</p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Fins comerciais legítimos</li>
+                        <li>Melhorar processos empresariais</li>
+                        <li>Automatizar atendimento ao cliente</li>
+                        <li>Desenvolver soluções de comunicação</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">5.2 Uso Proibido</h3>
+                    <p class="text-gray-700 mb-4">É expressamente proibido utilizar nossos serviços para:</p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Atividades ilegais ou fraudulentas</li>
+                        <li>Spam ou comunicações não solicitadas</li>
+                        <li>Violar direitos de propriedade intelectual</li>
+                        <li>Transmitir conteúdo ofensivo, difamatório ou prejudicial</li>
+                        <li>Interferir no funcionamento dos serviços</li>
+                        <li>Tentar obter acesso não autorizado a sistemas</li>
+                        <li>Violar leis de proteção de dados</li>
+                        <li>Atividades que violem a LGPD ou outras leis aplicáveis</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">6. Propriedade Intelectual</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">6.1 Propriedade da Empresa</h3>
+                    <p class="text-gray-700 mb-4">
+                        Todos os direitos de propriedade intelectual relacionados aos nossos serviços, incluindo software, algoritmos, marcas, textos e designs, pertencem à lilaas.ai ou nossos licenciadores.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">6.2 Licença de Uso</h3>
+                    <p class="text-gray-700 mb-4">
+                        Concedemos a você uma licença limitada, não exclusiva e não transferível para utilizar nossos serviços conforme estes Termos. Esta licença não inclui o direito de:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Modificar, distribuir ou criar obras derivadas</li>
+                        <li>Fazer engenharia reversa ou descompilar</li>
+                        <li>Sublicenciar ou transferir direitos</li>
+                        <li>Usar para fins competitivos</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">6.3 Conteúdo do Cliente</h3>
+                    <p class="text-gray-700 mb-4">
+                        Você mantém todos os direitos sobre o conteúdo que fornece através de nossos serviços. Você nos concede uma licença limitada para processar e armazenar esse conteúdo conforme necessário para fornecer os serviços.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">7. Pagamentos e Faturamento</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">7.1 Preços e Cobrança</h3>
+                    <p class="text-gray-700 mb-4">
+                        Os preços dos nossos serviços estão disponíveis em nosso site e podem ser alterados com aviso prévio de 30 dias. Os pagamentos são devidos conforme acordado no contrato específico.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">7.2 Métodos de Pagamento</h3>
+                    <p class="text-gray-700 mb-4">
+                        Aceitamos pagamentos através de cartão de crédito, transferência bancária, PIX e outros métodos disponíveis. Todos os pagamentos são processados de forma segura.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">7.3 Reembolsos</h3>
+                    <p class="text-gray-700 mb-4">
+                        Reembolsos são avaliados caso a caso e podem estar sujeitos a condições específicas conforme descrito em nossos contratos de serviço.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">8. Disponibilidade e Uptime</h2>
+                    <p class="text-gray-700 mb-4">
+                        Nos esforçamos para manter nossos serviços disponíveis 24/7, mas não garantimos disponibilidade ininterrupta. Podemos realizar manutenções programadas com aviso prévio.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Uptime Garantido:</strong> 99.9% de disponibilidade mensal, excluindo manutenções programadas e eventos de força maior.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">9. Limitação de Responsabilidade</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">9.1 Limitações Gerais</h3>
+                    <p class="text-gray-700 mb-4">
+                        Nossa responsabilidade é limitada ao valor pago pelos serviços nos 12 meses anteriores ao evento que deu origem ao dano. Não seremos responsáveis por:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Lucros cessantes ou perda de oportunidades</li>
+                        <li>Danos indiretos, consequenciais ou punitivos</li>
+                        <li>Perda de dados não causada por nossa negligência</li>
+                        <li>Interrupções causadas por terceiros</li>
+                        <li>Eventos de força maior</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">9.2 Exclusões</h3>
+                    <p class="text-gray-700 mb-4">
+                        Não excluímos nossa responsabilidade por morte ou lesões pessoais causadas por nossa negligência, fraude ou outras responsabilidades que não podem ser excluídas por lei.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. Indenização</h2>
+                    <p class="text-gray-700 mb-4">
+                        Você concorda em indenizar e isentar a lilaas.ai de qualquer reclamação, dano, perda ou despesa (incluindo honorários advocatícios) decorrentes de:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Uso inadequado de nossos serviços</li>
+                        <li>Violation destes Termos</li>
+                        <li>Violation de direitos de terceiros</li>
+                        <li>Conteúdo fornecido por você</li>
+                        <li>Atividades ilegais ou fraudulentas</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. Proteção de Dados e LGPD</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">11.1 Conformidade com LGPD</h3>
+                    <p class="text-gray-700 mb-4">
+                        Cumprimos integralmente a Lei Geral de Proteção de Dados (LGPD) e outras leis aplicáveis de proteção de dados. Para mais informações, consulte nossa Política de Privacidade.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">11.2 Processamento de Dados</h3>
+                    <p class="text-gray-700 mb-4">
+                        Processamos dados pessoais apenas conforme necessário para fornecer nossos serviços e conforme autorizado por lei ou consentimento.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">11.3 Segurança</h3>
+                    <p class="text-gray-700 mb-4">
+                        Implementamos medidas técnicas e organizacionais apropriadas para proteger dados pessoais contra acesso não autorizado, alteração, divulgação ou destruição.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">12. Suspensão e Encerramento</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">12.1 Suspensão</h3>
+                    <p class="text-gray-700 mb-4">
+                        Podemos suspender temporariamente o acesso aos serviços em caso de:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>Violation destes Termos</li>
+                        <li>Atividades suspeitas ou fraudulentas</li>
+                        <li>Problemas de segurança</li>
+                        <li>Atraso no pagamento</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">12.2 Encerramento</h3>
+                    <p class="text-gray-700 mb-4">
+                        Qualquer uma das partes pode encerrar o acordo com aviso prévio conforme especificado no contrato de serviço. Após o encerramento:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>O acesso aos serviços será interrompido</li>
+                        <li>Você pode solicitar uma cópia de seus dados</li>
+                        <li>Dados serão excluídos conforme nossa política de retenção</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">13. Modificações dos Termos</h2>
+                    <p class="text-gray-700 mb-4">
+                        Podemos modificar estes Termos periodicamente. Alterações significativas serão comunicadas com pelo menos 30 dias de antecedência através de:
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li>E-mail para o endereço cadastrado</li>
+                        <li>Aviso em nosso site</li>
+                        <li>Notificação através de nossos serviços</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">
+                        O uso continuado dos serviços após as modificações constitui aceitação dos novos Termos.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">14. Lei Aplicável e Jurisdição</h2>
+                    <p class="text-gray-700 mb-4">
+                        Estes Termos são regidos pelas leis brasileiras. Qualquer disputa será resolvida nos tribunais competentes de São José dos Campos, SP, Brasil.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Antes de buscar solução judicial, as partes se comprometem a tentar resolver disputas através de negociação direta ou mediação.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">15. Disposições Gerais</h2>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">15.1 Integridade do Acordo</h3>
+                    <p class="text-gray-700 mb-4">
+                        Estes Termos, juntamente com nossa Política de Privacidade e contratos específicos de serviço, constituem o acordo completo entre as partes.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">15.2 Divisibilidade</h3>
+                    <p class="text-gray-700 mb-4">
+                        Se qualquer disposição destes Termos for considerada inválida, as demais disposições permanecerão em vigor.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">15.3 Renúncia</h3>
+                    <p class="text-gray-700 mb-4">
+                        A falha em fazer valer qualquer direito ou disposição destes Termos não constitui renúncia a tal direito ou disposição.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">15.4 Cessão</h3>
+                    <p class="text-gray-700 mb-4">
+                        Você não pode ceder ou transferir seus direitos ou obrigações sob estes Termos sem nosso consentimento prévio por escrito.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">16. Contato</h2>
+                    <p class="text-gray-700 mb-4">
+                        Para questões relacionadas a estes Termos de Serviço, entre em contato conosco:
+                    </p>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <p class="text-gray-700 mb-2"><strong>E-mail:</strong> <span class="contact-email">contato@lilaas.ai</span></p>
+                        <p class="text-gray-700 mb-2"><strong>Telefone:</strong> <span class="contact-phone">+55 (19) 99717-2834</span></p>
+                        <p class="text-gray-700 mb-2"><strong>Endereço:</strong> <span class="contact-address">São José dos Campos, SP - Brasil</span></p>
+                        <p class="text-gray-700"><strong>Horário de atendimento:</strong> Segunda a sexta, das 9h às 18h</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">17. Anexos e Contratos Específicos</h2>
+                    <p class="text-gray-700 mb-4">
+                        Estes Termos gerais podem ser complementados por contratos específicos de serviço que detalham condições particulares para serviços específicos. Em caso de conflito, os contratos específicos prevalecerão sobre estes Termos gerais.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Documentos relacionados:</strong>
+                    </p>
+                    <ul class="list-disc pl-6 text-gray-700 mb-4">
+                        <li><a href="politica-privacidade.html" class="text-primary hover:underline">Política de Privacidade</a></li>
+                        <li>Contratos específicos de serviço (fornecidos durante o processo de contratação)</li>
+                        <li>Termos de uso de APIs (quando aplicável)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="logo.svg" alt="lilaas.ai" class="logo logo-white mr-3">
+                        <img src="lilaas-text.svg" alt="lilaas.ai" class="company-name company-name-white">
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Transformando negócios com automação inteligente e agentes conversacionais de IA.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-white transition-colors">Serviços</a></li>
+                        <li><a href="agentes.html" class="text-gray-400 hover:text-white transition-colors">Agentes IA</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="politica-privacidade.html" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
+                        <li><a href="termos-servico.html" class="text-gray-400 hover:text-white transition-colors">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span class="copyright-year">2024</span> <span class="copyright-company">lilaas.ai</span>. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

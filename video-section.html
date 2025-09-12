@@ -1,0 +1,103 @@
+<!-- Video Demo Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Veja a lilaas.ai em ação
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Descubra como nossos agentes de IA podem transformar o atendimento ao cliente da sua empresa
+            </p>
+        </div>
+        
+        <!-- Video Container -->
+        <div class="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="aspect-video">
+                <iframe 
+                    id="demo-video"
+                    class="w-full h-full"
+                    src=""
+                    title="Demonstração lilaas.ai"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Loading state -->
+            <div id="video-loading" class="absolute inset-0 bg-gray-900 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+                    <p class="text-lg">Carregando vídeo...</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Info -->
+        <div class="mt-8 text-center">
+            <p class="text-gray-600 mb-4">
+                Veja como configurar seus primeiros agentes de IA em menos de 5 minutos
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="contato.html" class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all">
+                    Começar Agora →
+                </a>
+                <button onclick="closeVideo()" class="text-gray-500 hover:text-gray-700 transition-colors">
+                    ✕ Fechar Vídeo
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Load video immediately when script runs (for HTMX loaded content)
+loadVideo();
+
+function loadVideo() {
+    const videoIframe = document.getElementById('demo-video');
+    const loadingDiv = document.getElementById('video-loading');
+    
+    // Get video URL from config
+    const videoUrl = window.CONFIG?.links?.demo_video || 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID';
+    console.log('Video URL:', videoUrl); // Debug log
+    
+    // Convert YouTube URL to embed format
+    const videoId = extractVideoId(videoUrl);
+    console.log('Video ID:', videoId); // Debug log
+    
+    if (videoId) {
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+        console.log('Embed URL:', embedUrl); // Debug log
+        videoIframe.src = embedUrl;
+        
+        // Hide loading after video loads
+        videoIframe.onload = function() {
+            setTimeout(() => {
+                loadingDiv.style.display = 'none';
+            }, 1000);
+        };
+    } else {
+        // Fallback if no valid video ID
+        loadingDiv.innerHTML = '<div class="text-center text-white"><p class="text-lg">Vídeo não disponível - URL: ' + videoUrl + '</p></div>';
+    }
+}
+
+function extractVideoId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function closeVideo() {
+    // Remove the video section
+    const container = document.getElementById('video-container');
+    container.innerHTML = '';
+    
+    // Pause video if playing
+    const iframe = document.getElementById('demo-video');
+    if (iframe) {
+        iframe.src = '';
+    }
+}
+</script>

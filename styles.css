@@ -1,0 +1,327 @@
+/* lilaas.ai Custom Styles */
+
+:root {
+    --primary-color: #5e1b68;
+    --secondary-color: #8b5a96;
+    --background-color: #fafafa;
+    --text-color: #333333;
+}
+
+.bg-primary { background-color: var(--primary-color); }
+.text-primary { color: var(--primary-color); }
+.border-primary { border-color: var(--primary-color); }
+
+.hero-gradient {
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+}
+
+.glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Simple entrance animation for blur circles */
+@keyframes fadeInUp {
+    0% { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Inner direction animation for rectangles */
+@keyframes slideInFromInner {
+    0% { 
+        transform: translate(50px, -30px) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    100% { 
+        transform: translate(0, 0) rotate(3deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromInnerRight {
+    0% { 
+        transform: translate(-50px, -30px) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    100% { 
+        transform: translate(0, 0) rotate(-2deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Entrance animation classes */
+.blur-circle-1 {
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.blur-circle-2 {
+    animation: fadeInUp 1s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.blur-circle-3 {
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.rect-1 {
+    animation: slideInFromInner 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.rect-2 {
+    animation: slideInFromInnerRight 1s ease-out 0.7s forwards;
+    opacity: 0;
+}
+
+/* Natural Directional Hover Effect */
+.pulse-glow {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pulse-glow::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                               rgba(94, 27, 104, 0.4) 0%, 
+                               rgba(94, 27, 104, 0.2) 40%, 
+                               transparent 80%);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+.pulse-glow:hover::after {
+    opacity: 1;
+}
+
+/* Service and Agent Cards */
+.service-card, .agent-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover, .agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(94, 27, 104, 0.1);
+}
+
+/* Form Inputs */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(94, 27, 104, 0.1);
+}
+
+/* Chat Bubble Animation */
+.chat-bubble {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+/* WhatsApp-style message bubbles */
+.whatsapp-bubble {
+    position: relative;
+}
+
+.whatsapp-bubble::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.whatsapp-bubble-left::before {
+    left: -8px;
+    top: 0;
+    border-width: 0 8px 8px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.whatsapp-bubble-right::before {
+    right: -8px;
+    top: 0;
+    border-width: 0 0 8px 8px;
+    border-color: transparent transparent transparent #10b981;
+}
+
+/* Logo Styles */
+.logo {
+    height: 1.7rem; /* 27.2px - 85% of 32px */
+    width: auto;
+}
+
+/* Mobile logo sizing */
+@media (max-width: 768px) {
+    .logo {
+        height: 1.19rem; /* 70% of 1.7rem */
+        width: auto;
+    }
+}
+
+/* Company name SVG styling */
+.company-name {
+    height: 1.275rem; /* 20.4px - 85% of 24px */
+    width: auto;
+}
+
+/* Company name for headings - larger size */
+.company-name-heading {
+    height: 2.5rem; /* 40px - proportional to text-4xl */
+    width: auto;
+}
+
+/* Mobile company name sizing */
+@media (max-width: 768px) {
+    .company-name {
+        height: 0.893rem; /* 70% of 1.275rem */
+        width: auto;
+    }
+    
+    .company-name-heading {
+        height: 1.75rem; /* 28px - proportional to text-4xl on mobile */
+        width: auto;
+    }
+}
+
+.company-name-white {
+    filter: brightness(0) invert(1); /* Makes SVG white */
+}
+
+.company-name-white svg path {
+    fill: #ffffff !important;
+}
+
+/* White logo for dark backgrounds */
+.logo-white {
+    filter: brightness(0) invert(1);
+}
+
+/* Alternative approach - if filter doesn't work, we can use CSS to modify SVG elements */
+.logo-white svg rect {
+    fill: #ffffff !important;
+}
+
+.logo-white svg path {
+    fill: #ffffff !important;
+}
+
+/* Primary color logo */
+.logo-primary {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.logo-primary svg rect {
+    fill: #5e1b68 !important;
+}
+
+.logo-primary svg path {
+    fill: #5e1b68 !important;
+}
+
+/* Video section animations */
+#video-container {
+    transition: all 0.5s ease-in-out;
+}
+
+#video-container section {
+    animation: slideInFromBottom 0.6s ease-out forwards;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animated Hamburger Menu Icon */
+.hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+    border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+}
+
+/* Hamburger to X Animation */
+.hamburger-icon.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-icon.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger-icon.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

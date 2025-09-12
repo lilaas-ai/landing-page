@@ -1,0 +1,468 @@
+// lilaas.ai Configuration
+// This file loads configuration variables for the website
+
+const CONFIG = {
+    site: {
+        name: "lilaas.ai",
+        description: "Serviços de automação com IA e agentes conversacionais para WhatsApp e Telegram",
+        url: "https://lilaas.ai",
+        logo: "logo.svg",
+        favicon: "favicon.png"
+    },
+    
+    contact: {
+        email: "matheus@lilaas.ai",
+        phone: "+55 (19) 99717-2834",
+        whatsapp: "+5519997172834",
+        address: "São José dos Campos, SP - Brasil"
+    },
+    
+    social: {
+        linkedin: "https://linkedin.com/company/lilaas-ai",
+        instagram: "https://instagram.com/lilaas.ai",
+        twitter: "https://twitter.com/lilaas_ai"
+    },
+    
+    forms: {
+        contact_form_url: "https://formspree.io/f/YOUR_FORM_ID",
+        newsletter_url: "https://formspree.io/f/YOUR_NEWSLETTER_ID"
+    },
+    
+    links: {
+        book_meeting: "https://calendar.google.com/calendar/appointments/schedules/YOUR_CALENDAR_ID",
+        service_catalog: "https://drive.google.com/file/d/YOUR_FILE_ID/view",
+        demo_video: "https://www.youtube.com/watch?v=A-tf5YEXNBQ&pp=ygUMcmFpYW0gc2FudG9z"
+    },
+    
+    seo: {
+        keywords: "automação IA, agentes conversacionais, WhatsApp bot, Telegram bot, inteligência artificial, automação empresarial",
+        author: "lilaas.ai",
+        og_image: "logo_completo.png"
+    },
+    
+    brand: {
+        primary_color: "#5e1b68",
+        secondary_color: "#8b5a96",
+        background_color: "#fafafa",
+        text_color: "#333333"
+    },
+    
+    copyright: {
+        year: new Date().getFullYear(),
+        company: "lilaas.ai"
+    },
+    
+    stats: {
+        clients: 500,
+        uptime: 99.9,
+        support: "24/7"
+    },
+    
+    serviceResults: {
+        responseTime: 85,
+        costSavings: 60,
+        satisfaction: 95
+    },
+    
+    agentResources: {
+        availability: "24/7",
+        conversations: 1000,
+        languages: 15,
+        uptime: 99.9
+    },
+    
+    legal: {
+        privacyPolicy: "politica-privacidade.html",
+        termsOfService: "termos-servico.html",
+        lastUpdated: "2024",
+        compliance: "LGPD"
+    }
+};
+
+// Utility functions to access config
+window.getConfig = function(path) {
+    return path.split('.').reduce((obj, key) => obj && obj[key], CONFIG);
+};
+
+// Auto-populate config values when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Update contact information
+    updateContactInfo();
+    
+    // Update social links
+    updateSocialLinks();
+    
+    // Update form actions
+    updateFormActions();
+    
+    // Update links
+    updateLinks();
+    
+    // Update meta tags
+    updateMetaTags();
+    
+    // Update copyright
+    updateCopyright();
+    
+    // Update main stats with scroll trigger
+    updateMainStats();
+    
+    // Update regular stats for other pages
+    updateStats();
+    
+    // Update social media links
+    updateSocialLinks();
+    
+    // Update service results stats
+    updateServiceResults();
+    
+    // Update agent resources stats
+    updateAgentResources();
+});
+
+function updateContactInfo() {
+    // Update email links
+    document.querySelectorAll('a[href*="contato@lilaas.ai"]').forEach(link => {
+        link.href = `mailto:${CONFIG.contact.email}`;
+    });
+    
+    // Update phone links
+    document.querySelectorAll('a[href*="+55"]').forEach(link => {
+        link.href = `tel:${CONFIG.contact.phone}`;
+    });
+    
+    // Update WhatsApp links
+    document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+        link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
+    });
+    
+    // Update contact text
+    document.querySelectorAll('.contact-email').forEach(el => {
+        el.textContent = CONFIG.contact.email;
+    });
+    
+    document.querySelectorAll('.contact-phone').forEach(el => {
+        el.textContent = CONFIG.contact.phone;
+    });
+    
+    document.querySelectorAll('.contact-address').forEach(el => {
+        el.textContent = CONFIG.contact.address;
+    });
+}
+
+
+function updateFormActions() {
+    // Update contact form action
+    document.querySelectorAll('form[action*="formspree"]').forEach(form => {
+        form.action = CONFIG.forms.contact_form_url;
+    });
+    
+    // Update newsletter form action
+    document.querySelectorAll('form[data-newsletter]').forEach(form => {
+        form.action = CONFIG.forms.newsletter_url;
+    });
+}
+
+function updateLinks() {
+    // Update book meeting links
+    document.querySelectorAll('a[href*="calendar.google.com"]').forEach(link => {
+        link.href = CONFIG.links.book_meeting;
+    });
+    
+    // Update service catalog links
+    document.querySelectorAll('a[href*="drive.google.com"]').forEach(link => {
+        link.href = CONFIG.links.service_catalog;
+    });
+    
+    // Update demo video links
+    document.querySelectorAll('a[href*="youtube.com"]').forEach(link => {
+        link.href = CONFIG.links.demo_video;
+    });
+    
+    // Update links with data attributes
+    document.querySelectorAll('a[data-book-meeting]').forEach(link => {
+        link.href = CONFIG.links.book_meeting;
+    });
+    
+    document.querySelectorAll('a[data-service-catalog]').forEach(link => {
+        link.href = CONFIG.links.service_catalog;
+    });
+    
+    document.querySelectorAll('a[data-demo-video]').forEach(link => {
+        link.href = CONFIG.links.demo_video;
+    });
+}
+
+function updateMetaTags() {
+    // Update page title if it contains placeholder
+    if (document.title.includes('lilaas.ai')) {
+        document.title = document.title.replace('lilaas.ai', CONFIG.site.name);
+    }
+    
+    // Update meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && metaDesc.content.includes('automação')) {
+        metaDesc.content = CONFIG.site.description;
+    }
+    
+    // Update meta keywords
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+        metaKeywords.content = CONFIG.seo.keywords;
+    }
+}
+
+function updateCopyright() {
+    // Update copyright year in footer
+    document.querySelectorAll('.copyright-year').forEach(element => {
+        element.textContent = CONFIG.copyright.year;
+    });
+    
+    // Update copyright company name
+    document.querySelectorAll('.copyright-company').forEach(element => {
+        element.textContent = CONFIG.copyright.company;
+    });
+}
+
+function updateStats() {
+    // Animate client count
+    const clientElements = document.querySelectorAll('.stat-clients');
+    clientElements.forEach(element => {
+        animateNumber(element, CONFIG.stats.clients, '+');
+    });
+    
+    // Animate uptime percentage
+    const uptimeElements = document.querySelectorAll('.stat-uptime');
+    uptimeElements.forEach(element => {
+        animateNumber(element, CONFIG.stats.uptime, '%');
+    });
+    
+    // Update support text
+    const supportElements = document.querySelectorAll('.stat-support');
+    supportElements.forEach(element => {
+        element.textContent = CONFIG.stats.support;
+    });
+}
+
+function updateMainStats() {
+    // Find main stats section
+    const mainStatsSection = document.querySelector('.main-stats-section');
+    if (!mainStatsSection) return;
+    
+    // Set initial values
+    const clientsElement = mainStatsSection.querySelector('.stat-clients');
+    const uptimeElement = mainStatsSection.querySelector('.stat-uptime');
+    const supportElement = mainStatsSection.querySelector('.stat-support');
+    
+    if (clientsElement) clientsElement.textContent = '0+';
+    if (uptimeElement) uptimeElement.textContent = '0%';
+    if (supportElement) supportElement.textContent = '24/7';
+    
+    // Create intersection observer for scroll-triggered animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate clients
+                if (clientsElement) {
+                    animateNumber(clientsElement, CONFIG.stats.clients, '+');
+                }
+                
+                // Animate uptime
+                if (uptimeElement) {
+                    animateNumber(uptimeElement, CONFIG.stats.uptime, '%');
+                }
+                
+                // Support is text, not a number
+                if (supportElement) {
+                    supportElement.textContent = CONFIG.stats.support;
+                }
+                
+                // Stop observing after animation starts
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+    
+    // Start observing the main stats section
+    observer.observe(mainStatsSection);
+}
+
+function animateNumber(element, targetValue, suffix = '') {
+    if (!element) {
+        return;
+    }
+    
+    const duration = 2000; // 2 seconds
+    const startTime = performance.now();
+    const startValue = 0;
+    
+    function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = startValue + (targetValue - startValue) * easeOutQuart;
+        
+        // Format the number based on whether it's a decimal or integer
+        let formattedValue;
+        if (targetValue % 1 !== 0) {
+            // For decimal values (like 99.9), show one decimal place
+            formattedValue = currentValue.toFixed(1);
+        } else {
+            // For integer values (like 500), show as integer
+            formattedValue = Math.floor(currentValue).toString();
+        }
+        
+        element.textContent = formattedValue + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        } else {
+            // Ensure final value is exactly the target
+            if (targetValue % 1 !== 0) {
+                element.textContent = targetValue.toFixed(1) + suffix;
+            } else {
+                element.textContent = targetValue + suffix;
+            }
+        }
+    }
+    
+    requestAnimationFrame(updateNumber);
+}
+
+function updateSocialLinks() {
+    // Find all social media links in footer
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+    
+    const socialLinks = footer.querySelectorAll('a[href="#"]');
+    
+    socialLinks.forEach((link, index) => {
+        const svg = link.querySelector('svg');
+        if (svg) {
+            const path = svg.querySelector('path');
+            if (path) {
+                const pathData = path.getAttribute('d');
+                
+                // LinkedIn path (first icon)
+                if (pathData && pathData.includes('M20.447 20.452h-3.554v-5.569c0-1.328')) {
+                    link.href = CONFIG.social.linkedin;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+                
+                // Instagram path (second icon)
+                if (pathData && pathData.includes('M12 2.163c3.204 0 3.584.012 4.85.07')) {
+                    link.href = CONFIG.social.instagram;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+                
+                // Twitter path (third icon)
+                if (pathData && pathData.includes('M23.953 4.57a10 10 0 01-2.825.775')) {
+                    link.href = CONFIG.social.twitter;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+            }
+        }
+    });
+}
+
+function updateServiceResults() {
+    // Find service results section
+    const serviceResultsSection = document.querySelector('.service-results-section');
+    if (!serviceResultsSection) return;
+    
+    // Set initial values to 0
+    const responseTimeElement = serviceResultsSection.querySelector('.service-response-time');
+    const costSavingsElement = serviceResultsSection.querySelector('.service-cost-savings');
+    const satisfactionElement = serviceResultsSection.querySelector('.service-satisfaction');
+    
+    if (responseTimeElement) responseTimeElement.textContent = '0%';
+    if (costSavingsElement) costSavingsElement.textContent = '0%';
+    if (satisfactionElement) satisfactionElement.textContent = '0%';
+    
+    // Create intersection observer for scroll-triggered animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate response time
+                if (responseTimeElement) {
+                    animateNumber(responseTimeElement, CONFIG.serviceResults.responseTime, '%');
+                }
+                
+                // Animate cost savings
+                if (costSavingsElement) {
+                    animateNumber(costSavingsElement, CONFIG.serviceResults.costSavings, '%');
+                }
+                
+                // Animate satisfaction
+                if (satisfactionElement) {
+                    animateNumber(satisfactionElement, CONFIG.serviceResults.satisfaction, '%');
+                }
+                
+                // Stop observing after animation starts
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+    
+    // Start observing the service results section
+    observer.observe(serviceResultsSection);
+}
+
+function updateAgentResources() {
+    // Find agent resources section
+    const agentResourcesSection = document.querySelector('.agent-resources-section');
+    if (!agentResourcesSection) return;
+    
+    // Set initial values
+    const availabilityElement = agentResourcesSection.querySelector('.agent-availability');
+    const conversationsElement = agentResourcesSection.querySelector('.agent-conversations');
+    const languagesElement = agentResourcesSection.querySelector('.agent-languages');
+    const uptimeElement = agentResourcesSection.querySelector('.agent-uptime');
+    
+    if (availabilityElement) availabilityElement.textContent = '24/7';
+    if (conversationsElement) conversationsElement.textContent = '0+';
+    if (languagesElement) languagesElement.textContent = '0';
+    if (uptimeElement) uptimeElement.textContent = '0%';
+    
+    // Create intersection observer for scroll-triggered animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate conversations
+                if (conversationsElement) {
+                    animateNumber(conversationsElement, CONFIG.agentResources.conversations, '+');
+                }
+                
+                // Animate languages
+                if (languagesElement) {
+                    animateNumber(languagesElement, CONFIG.agentResources.languages, '');
+                }
+                
+                // Animate uptime
+                if (uptimeElement) {
+                    animateNumber(uptimeElement, CONFIG.agentResources.uptime, '%');
+                }
+                
+                // Stop observing after animation starts
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+    
+    // Start observing the agent resources section
+    observer.observe(agentResourcesSection);
+}
+
+// Export for use in other scripts
+window.CONFIG = CONFIG;
