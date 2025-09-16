@@ -213,7 +213,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
-                <div>
+                <div x-data="contactForm()">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">
                         Agende sua consultoria gratuita
                     </h2>
@@ -222,20 +222,22 @@
                         para agendar sua consultoria gratuita de 30 minutos.
                     </p>
                     
-                    <form hx-post="https://formspree.io/f/YOUR_FORM_ID" hx-target="#form-result" class="space-y-6" data-contact-form>
+                    <!-- Form State -->
+                    <div x-show="!submitted" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0">
+                        <form @submit.prevent="submitForm()" class="space-y-6" data-contact-form>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">
                                     Nome Completo *
                                 </label>
-                                <input type="text" id="nome" name="nome" required
+                                <input type="text" id="nome" name="nome" x-model="form.nome" required
                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             </div>
                             <div>
                                 <label for="empresa" class="block text-sm font-medium text-gray-700 mb-2">
                                     Empresa
                                 </label>
-                                <input type="text" id="empresa" name="empresa"
+                                <input type="text" id="empresa" name="empresa" x-model="form.empresa"
                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             </div>
                         </div>
@@ -245,14 +247,14 @@
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                                     E-mail *
                                 </label>
-                                <input type="email" id="email" name="email" required
+                                <input type="email" id="email" name="email" x-model="form.email" required
                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             </div>
                             <div>
                                 <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">
                                     Telefone *
                                 </label>
-                                <input type="tel" id="telefone" name="telefone" required
+                                <input type="tel" id="telefone" name="telefone" x-model="form.telefone" required
                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             </div>
                         </div>
@@ -262,7 +264,7 @@
                                 Serviço de Interesse *
                             </label>
                             <div class="custom-dropdown" x-data="{ open: false, selected: '', selectedText: 'Selecione um serviço' }" x-init="$nextTick(() => { const button = $el.querySelector('button'); const dropdown = $el.querySelector('.dropdown-menu'); if (button && dropdown) { dropdown.style.width = button.offsetWidth + 'px'; } })">
-                                <input type="hidden" name="servico" x-model="selected" required>
+                                <input type="hidden" name="servico" x-model="form.servico" required>
                                 <button type="button" @click="open = !open" 
                                         class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-left flex justify-between items-center hover:border-gray-400 transition-all duration-300"
                                         :class="{ 'border-primary ring-2 ring-primary ring-opacity-20': open }">
@@ -282,39 +284,39 @@
                                      x-transition:leave-end="opacity-0 transform scale-95 -translate-y-2"
                                      class="dropdown-menu absolute z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                                     <div class="py-1">
-                                        <button type="button" @click="selected = ''; selectedText = 'Selecione um serviço'; open = false"
+                                        <button type="button" @click="$parent.selectService('', 'Selecione um serviço'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-500 hover:bg-gray-50 transition-colors duration-200">
                                             Selecione um serviço
                                         </button>
-                                        <button type="button" @click="selected = 'chatbot-whatsapp'; selectedText = 'Chatbot para WhatsApp'; open = false"
+                                        <button type="button" @click="$parent.selectService('chatbot-whatsapp', 'Chatbot para WhatsApp'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Chatbot para WhatsApp
                                         </button>
-                                        <button type="button" @click="selected = 'chatbot-telegram'; selectedText = 'Chatbot para Telegram'; open = false"
+                                        <button type="button" @click="$parent.selectService('chatbot-telegram', 'Chatbot para Telegram'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Chatbot para Telegram
                                         </button>
-                                        <button type="button" @click="selected = 'automatizacao-processos'; selectedText = 'Automação de Processos'; open = false"
+                                        <button type="button" @click="$parent.selectService('automatizacao-processos', 'Automação de Processos'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Automação de Processos
                                         </button>
-                                        <button type="button" @click="selected = 'agente-atendimento'; selectedText = 'Agente de Atendimento'; open = false"
+                                        <button type="button" @click="$parent.selectService('agente-atendimento', 'Agente de Atendimento'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Agente de Atendimento
                                         </button>
-                                        <button type="button" @click="selected = 'agente-vendas'; selectedText = 'Agente de Vendas'; open = false"
+                                        <button type="button" @click="$parent.selectService('agente-vendas', 'Agente de Vendas'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Agente de Vendas
                                         </button>
-                                        <button type="button" @click="selected = 'integracao-sistemas'; selectedText = 'Integração de Sistemas'; open = false"
+                                        <button type="button" @click="$parent.selectService('integracao-sistemas', 'Integração de Sistemas'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Integração de Sistemas
                                         </button>
-                                        <button type="button" @click="selected = 'consultoria'; selectedText = 'Consultoria em IA'; open = false"
+                                        <button type="button" @click="$parent.selectService('consultoria', 'Consultoria em IA'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Consultoria em IA
                                         </button>
-                                        <button type="button" @click="selected = 'outro'; selectedText = 'Outro'; open = false"
+                                        <button type="button" @click="$parent.selectService('outro', 'Outro'); open = false"
                                                 class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
                                             Outro
                                         </button>
@@ -327,13 +329,13 @@
                             <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">
                                 Descreva sua necessidade de automação *
                             </label>
-                            <textarea id="mensagem" name="mensagem" rows="5" required
+                            <textarea id="mensagem" name="mensagem" rows="5" x-model="form.mensagem" required
                                       placeholder="Conte-nos sobre seus processos atuais, desafios e objetivos de automação. Quanto mais detalhes, melhor poderemos ajudá-lo na consultoria..."
                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
                         </div>
                         
                         <div class="flex items-start">
-                            <input type="checkbox" id="privacidade" name="privacidade" required
+                            <input type="checkbox" id="privacidade" name="privacidade" x-model="form.privacidade" required
                                    class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="privacidade" class="ml-2 text-sm text-gray-600">
                                 Concordo com o processamento dos meus dados pessoais conforme a 
@@ -341,13 +343,44 @@
                             </label>
                         </div>
                         
-                        <button type="submit"
-                                class="w-full bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                            Agendar consultoria gratuita →
+                        <button type="submit" :disabled="loading"
+                                class="w-full bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                            <span x-show="!loading">Agendar consultoria gratuita →</span>
+                            <span x-show="loading" class="flex items-center">
+                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Enviando...
+                            </span>
                         </button>
-                        
-                        <div id="form-result" class="mt-4"></div>
                     </form>
+                    </div>
+
+                    <!-- Success State -->
+                    <div x-show="submitted" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="text-center">
+                        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                                Consultoria agendada! 🎉
+                            </h2>
+                            <p class="text-gray-600 mb-6">
+                                Obrigado por entrar em contato! Nossa equipe entrará em contato em até 2 horas para agendar sua consultoria gratuita de 30 minutos.
+                            </p>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                                <p class="text-sm text-blue-800">
+                                    <strong>Próximos passos:</strong> Analisaremos sua necessidade e entraremos em contato para agendar a melhor data e horário para sua consultoria.
+                                </p>
+                            </div>
+                            <button @click="resetForm()" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                                Enviar nova solicitação
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Contact Information -->
@@ -727,21 +760,102 @@
             setupScrollAnimations();
         });
         
-        // Form submission handling
-        document.addEventListener('htmx:afterRequest', function(event) {
-            if (event.detail.xhr.status === 200) {
-                document.getElementById('form-result').innerHTML = 
-                    '<div class="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">' +
-                    'Obrigado! Sua solicitação de consultoria foi enviada com sucesso. Entraremos em contato em até 2 horas para agendar sua consultoria gratuita.' +
-                    '</div>';
-                event.target.reset();
-            } else {
-                document.getElementById('form-result').innerHTML = 
-                    '<div class="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">' +
-                    'Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone.' +
-                    '</div>';
+        // Contact form Alpine.js component
+        function contactForm() {
+            return {
+                form: {
+                    nome: '',
+                    empresa: '',
+                    email: '',
+                    telefone: '',
+                    servico: '',
+                    mensagem: '',
+                    privacidade: false
+                },
+                loading: false,
+                submitted: false,
+
+                async submitForm() {
+                    this.loading = true;
+                    
+                    try {
+                        // Get the form action URL from config
+                        const form = document.querySelector('form[data-contact-form]');
+                        let actionUrl = CONFIG.forms.contact_form_url;
+                        
+                        // If we're on localhost, use the direct webhook URL
+                        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '0.0.0.0') {
+                            actionUrl = 'https://n8n.lilaas.ai/webhook/55c843d2-b24f-4546-aa87-42630bd828a7';
+                            console.log('Detected localhost, using direct webhook URL');
+                        }
+                        
+                        console.log('Form element:', form);
+                        console.log('Action URL:', actionUrl);
+                        console.log('Form data:', this.form);
+                        
+                        // Prepare form data
+                        const formData = new FormData();
+                        formData.append('nome', this.form.nome);
+                        formData.append('empresa', this.form.empresa || '');
+                        formData.append('email', this.form.email);
+                        formData.append('telefone', this.form.telefone);
+                        formData.append('servico', this.form.servico);
+                        formData.append('mensagem', this.form.mensagem);
+                        formData.append('privacidade', this.form.privacidade ? 'sim' : 'nao');
+                        
+                        // Send the data
+                        const response = await fetch(actionUrl, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (response.ok) {
+                            console.log('Form submitted successfully:', this.form);
+                            this.submitted = true;
+                        } else {
+                            console.error('Form submission failed:', response.statusText);
+                            alert('Erro ao enviar formulário. Tente novamente ou entre em contato por telefone.');
+                        }
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        alert('Erro ao enviar formulário. Tente novamente ou entre em contato por telefone.');
+                    }
+                    
+                    this.loading = false;
+                },
+
+                selectService(value, text) {
+                    this.form.servico = value;
+                    // Update the dropdown display
+                    const dropdown = document.querySelector('.custom-dropdown');
+                    if (dropdown) {
+                        dropdown._x_dataStack[0].selected = value;
+                        dropdown._x_dataStack[0].selectedText = text;
+                    }
+                },
+
+                resetForm() {
+                    this.form = {
+                        nome: '',
+                        empresa: '',
+                        email: '',
+                        telefone: '',
+                        servico: '',
+                        mensagem: '',
+                        privacidade: false
+                    };
+                    this.submitted = false;
+                    this.loading = false;
+                    
+                    // Reset dropdown
+                    const dropdown = document.querySelector('.custom-dropdown');
+                    if (dropdown) {
+                        dropdown._x_dataStack[0].selected = '';
+                        dropdown._x_dataStack[0].selectedText = 'Selecione um serviço';
+                    }
+                }
             }
-        });
+        }
     </script>
 </body>
 </html>
