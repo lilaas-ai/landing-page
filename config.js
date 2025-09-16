@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateContactInfo() {
     console.log('Updating contact info...', CONFIG.contact);
     
-    // Update email links
-    document.querySelectorAll('a[href*="contato@lilaas.ai"]').forEach(link => {
+    // Update email links (both old and new patterns)
+    document.querySelectorAll('a[href*="contato@lilaas.ai"], a[href*="matheus@lilaas.ai"]').forEach(link => {
         link.href = `mailto:${CONFIG.contact.email}`;
     });
     
@@ -143,13 +143,13 @@ function updateContactInfo() {
         console.log('Updated email link to:', link.href);
     });
     
-    // Update phone links
-    document.querySelectorAll('a[href*="+55"]').forEach(link => {
+    // Update phone links (tel: links)
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
         link.href = `tel:${CONFIG.contact.phone}`;
     });
     
-    // Update WhatsApp links
-    document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+    // Update WhatsApp links (both old and new patterns)
+    document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"]').forEach(link => {
         link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
     });
     
@@ -161,7 +161,7 @@ function updateContactInfo() {
         console.log('Updated WhatsApp link to:', link.href);
     });
     
-    // Update contact text
+    // Update contact text elements
     document.querySelectorAll('.contact-email').forEach(el => {
         el.textContent = CONFIG.contact.email;
     });
@@ -172,6 +172,59 @@ function updateContactInfo() {
     
     document.querySelectorAll('.contact-address').forEach(el => {
         el.textContent = CONFIG.contact.address;
+    });
+    
+    // Update structured data (JSON-LD) if present
+    updateStructuredData();
+}
+
+function updateStructuredData() {
+    // Find all JSON-LD scripts and update contact information
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+        try {
+            const data = JSON.parse(script.textContent);
+            
+            // Update Organization contact points
+            if (data['@type'] === 'Organization' && data.contactPoint) {
+                if (Array.isArray(data.contactPoint)) {
+                    data.contactPoint.forEach(point => {
+                        if (point.email) point.email = CONFIG.contact.email;
+                        if (point.telephone) point.telephone = CONFIG.contact.phone.replace(/[()\s-]/g, '');
+                    });
+                } else {
+                    if (data.contactPoint.email) data.contactPoint.email = CONFIG.contact.email;
+                    if (data.contactPoint.telephone) data.contactPoint.telephone = CONFIG.contact.phone.replace(/[()\s-]/g, '');
+                }
+            }
+            
+            // Update ContactPage contact points
+            if (data['@type'] === 'ContactPage' && data.mainEntity && data.mainEntity.contactPoint) {
+                if (Array.isArray(data.mainEntity.contactPoint)) {
+                    data.mainEntity.contactPoint.forEach(point => {
+                        if (point.email) point.email = CONFIG.contact.email;
+                        if (point.telephone) point.telephone = CONFIG.contact.phone.replace(/[()\s-]/g, '');
+                    });
+                } else {
+                    if (data.mainEntity.contactPoint.email) data.mainEntity.contactPoint.email = CONFIG.contact.email;
+                    if (data.mainEntity.contactPoint.telephone) data.mainEntity.contactPoint.telephone = CONFIG.contact.phone.replace(/[()\s-]/g, '');
+                }
+            }
+            
+            // Update sameAs (WhatsApp links)
+            if (data.sameAs && Array.isArray(data.sameAs)) {
+                data.sameAs = data.sameAs.map(link => {
+                    if (link.includes('wa.me')) {
+                        return `https://wa.me/${CONFIG.contact.whatsapp}`;
+                    }
+                    return link;
+                });
+            }
+            
+            // Update the script content
+            script.textContent = JSON.stringify(data, null, 2);
+        } catch (e) {
+            console.warn('Could not parse JSON-LD:', e);
+        }
     });
 }
 
