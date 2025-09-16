@@ -8,8 +8,34 @@
     <meta name="keywords" content="agentes IA, chatbots WhatsApp, bots Telegram, agentes conversacionais, IA conversacional, atendimento automatizado">
     
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styling with brand color #5e1b68 */
+        .bg-primary:hover {
+            background-color: #4a1552 !important;
+        }
+        
+        .text-primary:hover {
+            color: #4a1552 !important;
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5e1b68',
+                        'primary-dark': '#4a1552',
+                        'primary-light': '#7a2a85'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="config.js?v=1.9"></script>
@@ -35,7 +61,7 @@
                     <a href="agentes.html" class="text-primary font-semibold">Agentes IA</a>
                     <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
                     <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                        Teste Grátis 14 Dias →
+                        Agendar consultoria →
                     </a>
                 </div>
                 
@@ -67,7 +93,7 @@
                 <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
                 <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-primary font-semibold">Agentes IA</a>
                 <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
-                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis 14 Dias</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Agendar Consultoria</a>
             </div>
         </div>
     </nav>
@@ -75,14 +101,44 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Seus Clientes Nunca Mais Vão <span class="text-primary">Esperar por Resposta</span>
+            <div class="text-center pt-8">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    Agentes Conversacionais de IA
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Seus clientes nunca mais vão<br><span class="text-primary">esperar por resposta</span>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
                     Agentes de IA que respondem em segundos, 24/7, diretamente no WhatsApp e Telegram. 
                     Seus clientes vão pensar que você tem uma equipe gigante trabalhando.
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#agent-types" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow relative overflow-hidden">
+                        Ver agentes disponíveis →
+                    </a>
+                    <a href="contato.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                        Agendar consultoria gratuita
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div id="hero-stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="response-time-stat">0s</div>
+                        <div class="text-gray-600">Tempo de resposta</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="availability-stat">0/7</div>
+                        <div class="text-gray-600">Disponibilidade contínua</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="satisfaction-stat">0%</div>
+                        <div class="text-gray-600">Satisfação dos clientes</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -192,7 +248,7 @@
     </section>
 
     <!-- Agent Types Section -->
-    <section class="py-20 bg-gray-50">
+    <section id="agent-types" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -205,10 +261,10 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Agent 1 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Agente de Atendimento</h3>
@@ -222,13 +278,16 @@
                         <li>• Escalação para humanos</li>
                         <li>• Histórico de conversas</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Redução de 80% no tempo de resposta
+                    </div>
                 </div>
 
                 <!-- Agent 2 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Agente de Vendas</h3>
@@ -242,13 +301,16 @@
                         <li>• Agendamento de reuniões</li>
                         <li>• Follow-up automático</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Aumento de 45% na conversão
+                    </div>
                 </div>
 
                 <!-- Agent 3 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-4">Agente de Suporte Técnico</h3>
@@ -262,10 +324,13 @@
                         <li>• Integração com base de conhecimento</li>
                         <li>• Coleta de logs e informações</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Resolução de 90% dos problemas
+                    </div>
                 </div>
 
                 <!-- Agent 4 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -282,10 +347,13 @@
                         <li>• Lembretes automáticos</li>
                         <li>• Reagendamento inteligente</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Redução de 60% em não comparecimentos
+                    </div>
                 </div>
 
                 <!-- Agent 5 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
@@ -302,10 +370,13 @@
                         <li>• Negociação de prazos</li>
                         <li>• Relatórios financeiros</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Redução de 40% na inadimplência
+                    </div>
                 </div>
 
                 <!-- Agent 6 -->
-                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="agent-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -322,6 +393,9 @@
                         <li>• Treinamento especializado</li>
                         <li>• Suporte dedicado</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Solução 100% personalizada
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,7 +403,7 @@
     </section>
 
     <!-- Platform Integration Section -->
-    <section class="py-20 bg-white agent-resources-section">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -375,7 +449,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-100 rounded-lg p-8">
+                <div class="bg-gray-100 rounded-lg p-8" id="platform-stats-section">
                     <h3 class="text-xl font-semibold mb-6 text-center">Recursos Disponíveis</h3>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center">
@@ -400,6 +474,37 @@
         </div>
     </section>
 
+    <!-- Results Section -->
+    <section class="py-20 bg-white agent-results-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Resultados Comprovados
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossos agentes já transformaram o atendimento de centenas de empresas
+                </p>
+            </div>
+            
+            <div id="agent-results-section" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 agent-response-time">0%</div>
+                    <div class="text-gray-600">Redução no tempo de resposta</div>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 agent-satisfaction">0%</div>
+                    <div class="text-gray-600">Satisfação dos clientes</div>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 agent-conversion">0%</div>
+                    <div class="text-gray-600">Aumento na conversão</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 bg-primary">
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
@@ -407,10 +512,10 @@
                 Pronto para ter seu próprio agente de IA?
             </h2>
             <p class="text-xl text-purple-100 mb-8">
-                Teste grátis por 14 dias e veja como nossos agentes podem transformar seu atendimento
+                Agende uma consultoria gratuita e veja como nossos agentes podem transformar seu atendimento
             </p>
             <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
-                Teste Grátis por 14 Dias →
+                Agendar consultoria gratuita →
             </a>
         </div>
     </section>
@@ -499,6 +604,89 @@
                 this.style.setProperty('--mouse-x', x + '%');
                 this.style.setProperty('--mouse-y', y + '%');
             });
+        });
+
+        // Counting Animation Function
+        function animateCounter(element, targetValue, duration = 2000, suffix = '') {
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let currentValue = startValue;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                
+                if (suffix === 'x') {
+                    element.textContent = Math.floor(currentValue) + 'x';
+                } else if (suffix === '%') {
+                    element.textContent = Math.floor(currentValue) + '%';
+                } else if (suffix === '/7') {
+                    element.textContent = Math.floor(currentValue) + '/7';
+                } else if (suffix === 's') {
+                    element.textContent = Math.floor(currentValue) + 's';
+                } else if (suffix === '+') {
+                    element.textContent = Math.floor(currentValue) + '+';
+                } else {
+                    element.textContent = Math.floor(currentValue) + suffix;
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.3, // Trigger when 30% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Hero stats section
+                        if (element.id === 'hero-stats-section') {
+                            animateCounter(document.getElementById('response-time-stat'), 10, 2000, 's');
+                            animateCounter(document.getElementById('availability-stat'), 24, 2000, '/7');
+                            animateCounter(document.getElementById('satisfaction-stat'), 95, 2000, '%');
+                        }
+                        
+                        // Agent results section
+                        if (element.id === 'agent-results-section') {
+                            animateCounter(document.querySelector('.agent-response-time'), 80, 2000, '%');
+                            animateCounter(document.querySelector('.agent-satisfaction'), 95, 2000, '%');
+                            animateCounter(document.querySelector('.agent-conversion'), 45, 2000, '%');
+                        }
+                        
+                        // Platform integration stats
+                        if (element.id === 'platform-stats-section') {
+                            animateCounter(document.querySelector('.agent-conversations'), 1000, 2000, '+');
+                            animateCounter(document.querySelector('.agent-languages'), 3, 2000, '');
+                            animateCounter(document.querySelector('.agent-uptime'), 99, 2000, '%');
+                        }
+                        
+                        // Stop observing this element after animation
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections
+            const heroStatsSection = document.getElementById('hero-stats-section');
+            const agentResultsSection = document.getElementById('agent-results-section');
+            const platformStatsSection = document.getElementById('platform-stats-section');
+
+            if (heroStatsSection) observer.observe(heroStatsSection);
+            if (agentResultsSection) observer.observe(agentResultsSection);
+            if (platformStatsSection) observer.observe(platformStatsSection);
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimations();
         });
         
         // Auto-scroll chat functionality

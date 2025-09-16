@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços de Automação - lilaas.ai</title>
-    <meta name="description" content="Descubra nossos serviços de automação com IA: chatbots, processamento de dados, integração de sistemas e muito mais para transformar seu negócio.">
-    <meta name="keywords" content="automação IA, serviços automação, chatbots, processamento dados, integração sistemas, automação empresarial">
+    <title>Automações com IA | lilaas.ai</title>
+    <meta name="description" content="Automatize processos empresariais com IA avançada. Chatbots inteligentes, automação de vendas, atendimento 24/7 e integração de sistemas. Economia de até 60% em custos operacionais.">
+    <meta name="keywords" content="automação empresarial, automação IA, automação processos, chatbots empresariais, automação vendas, automação atendimento, integração sistemas, workflow automatizado">
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
@@ -13,6 +13,27 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="config.js?v=1.9"></script>
+    <style>
+        /* Custom styling with brand color #5e1b68 */
+        .bg-primary:hover {
+            background-color: #4a1552 !important;
+        }
+        
+        .text-primary:hover {
+            color: #4a1552 !important;
+        }
+        
+        /* Orçamento button hover - ensure text stays purple */
+        a[href="contato.html"]:has-text("Solicitar Orçamento"):hover,
+        a[href="contato.html"]:hover:contains("Solicitar Orçamento") {
+            color: #5e1b68 !important;
+        }
+        
+        /* More specific selector for the orçamento button */
+        .border-white.text-white:hover {
+            color: #5e1b68 !important;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
     <!-- Navigation -->
@@ -35,7 +56,7 @@
                     <a href="agentes.html" class="text-gray-700 hover:text-primary transition-colors">Agentes IA</a>
                     <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
                     <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                        Teste Grátis 14 Dias →
+                        Agendar consultoria →
                     </a>
                 </div>
                 
@@ -67,7 +88,7 @@
                 <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-primary font-semibold">Serviços</a>
                 <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Agentes IA</a>
                 <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
-                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis 14 Dias</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Agendar Consultoria</a>
             </div>
         </div>
     </nav>
@@ -75,154 +96,399 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Automatize Seu Negócio e <span class="text-primary">Aumente Vendas em 60%</span>
+            <div class="text-center pt-8">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Automações com IA
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Transforme processos manuais em<br><span class="text-primary">automações inteligentes</span>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Nossos clientes já economizaram milhões em custos operacionais. 
-                    Descubra como você pode fazer o mesmo com automação inteligente.
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+                    Elimine tarefas repetitivas, reduza custos operacionais em até <strong class="text-primary">60%</strong> e 
+                    acelere seu crescimento com soluções de automação empresarial alimentadas por IA.
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#automation-benefits" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow relative overflow-hidden">
+                        Ver benefícios →
+                    </a>
+                    <a href="contato.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                        Agendar consultoria gratuita
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div id="hero-stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="efficiency-stat">0x</div>
+                        <div class="text-gray-600">Mais eficiência</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="cost-reduction-stat">0%</div>
+                        <div class="text-gray-600">Redução de custos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="availability-stat">0/7</div>
+                        <div class="text-gray-600">Disponibilidade contínua</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Grid -->
+    <!-- Automation Workflows Section -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Fluxos que transformam negócios
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossas soluções de automação cobrem todos os aspectos do seu negócio, 
+                    desde vendas até atendimento ao cliente
+                </p>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Chatbots Inteligentes</h3>
+                    <h3 class="text-xl font-semibold mb-4">Atendimento</h3>
                     <p class="text-gray-600 mb-6">
-                        Desenvolvemos chatbots avançados que entendem contexto, aprendem com interações 
-                        e fornecem respostas precisas 24/7.
+                        Automatize 80% das interações com clientes através de chatbots inteligentes 
+                        que respondem, qualificam leads e agendam reuniões automaticamente.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Qualificação automática de leads</li>
+                        <li>• Agendamento de reuniões</li>
+                        <li>• Suporte 24/7 sem intervenção</li>
                         <li>• Integração WhatsApp & Telegram</li>
-                        <li>• Processamento de linguagem natural</li>
-                        <li>• Aprendizado contínuo</li>
-                        <li>• Analytics detalhados</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Redução de 70% no tempo de resposta
+                    </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Processamento de Dados</h3>
+                    <h3 class="text-xl font-semibold mb-4">Vendas</h3>
                     <p class="text-gray-600 mb-6">
-                        Automatizamos a análise e processamento de grandes volumes de dados, 
-                        extraindo insights valiosos para seu negócio.
+                        Transforme prospects em clientes com workflows automatizados de nurturing, 
+                        follow-up inteligente e qualificação contínua de oportunidades.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• Análise de sentimentos</li>
-                        <li>• Extração de informações</li>
-                        <li>• Classificação automática</li>
-                        <li>• Relatórios inteligentes</li>
+                        <li>• Sequências de email automáticas</li>
+                        <li>• Scoring de leads em tempo real</li>
+                        <li>• Follow-up personalizado</li>
+                        <li>• Integração CRM completa</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Aumento de 45% na conversão
+                    </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Integração de Sistemas</h3>
+                    <h3 class="text-xl font-semibold mb-4">Processos internos</h3>
                     <p class="text-gray-600 mb-6">
-                        Conectamos diferentes sistemas e plataformas, criando fluxos de trabalho 
-                        automatizados e eficientes.
+                        Elimine tarefas repetitivas e erros manuais com workflows automatizados 
+                        que conectam todos os seus sistemas e processos.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• APIs personalizadas</li>
-                        <li>• Webhooks inteligentes</li>
+                        <li>• Workflows personalizados</li>
+                        <li>• Integração entre sistemas</li>
+                        <li>• Automação de aprovações</li>
                         <li>• Sincronização de dados</li>
-                        <li>• Monitoramento em tempo real</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Economia de 4h/dia por funcionário
+                    </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Automação Financeira</h3>
+                    <h3 class="text-xl font-semibold mb-4">Financeiro</h3>
                     <p class="text-gray-600 mb-6">
-                        Automatizamos processos financeiros como cobrança, faturamento e 
-                        análise de crédito com IA avançada.
+                        Automatize cobranças, faturamento e análise financeira com IA que 
+                        reduz inadimplência e acelera o fluxo de caixa.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• Cobrança automática</li>
-                        <li>• Análise de risco</li>
-                        <li>• Faturamento inteligente</li>
-                        <li>• Relatórios financeiros</li>
+                        <li>• Cobrança automática inteligente</li>
+                        <li>• Análise de risco de crédito</li>
+                        <li>• Faturamento automatizado</li>
+                        <li>• Relatórios financeiros em tempo real</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Redução de 40% na inadimplência
+                    </div>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
-                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Atendimento ao Cliente</h3>
-                    <p class="text-gray-600 mb-6">
-                        Revolucione seu atendimento com IA que entende, classifica e responde 
-                        automaticamente às solicitações dos clientes.
-                    </p>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• Triagem inteligente</li>
-                        <li>• Respostas automáticas</li>
-                        <li>• Escalação para humanos</li>
-                        <li>• Métricas de satisfação</li>
-                    </ul>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card bg-white p-8 rounded-lg border border-gray-200">
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                     <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Análise Preditiva</h3>
+                    <h3 class="text-xl font-semibold mb-4">Marketing</h3>
                     <p class="text-gray-600 mb-6">
-                        Utilize machine learning para prever tendências, comportamentos e 
-                        oportunidades de negócio.
+                        Automatize campanhas, segmentação de audiência e nurturing de leads 
+                        com IA que personaliza cada interação.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• Previsão de demanda</li>
-                        <li>• Análise de churn</li>
-                        <li>• Recomendações personalizadas</li>
-                        <li>• Otimização de preços</li>
+                        <li>• Campanhas automatizadas</li>
+                        <li>• Segmentação inteligente</li>
+                        <li>• Nurturing personalizado</li>
+                        <li>• Analytics avançados</li>
                     </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Aumento de 35% no engajamento
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Relatórios e indicadores</h3>
+                    <p class="text-gray-600 mb-6">
+                        Gere relatórios automáticos e insights acionáveis com IA que monitora 
+                        KPIs e alerta sobre oportunidades.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Dashboards automáticos</li>
+                        <li>• Alertas inteligentes</li>
+                        <li>• Análise preditiva</li>
+                        <li>• Relatórios personalizados</li>
+                    </ul>
+                    <div class="mt-4 text-sm text-primary font-medium">
+                        → Economia de 6h/semana em relatórios
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Benefits Section -->
+    <section id="automation-benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Por que a automação é essencial para o seu negócio
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Empresas que automatizam processos crescem 3x mais rápido e reduzem custos em até 60%
+                </p>
+            </div>
+            
+            <div id="automation-benefits-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Redução de custos</h3>
+                    <p class="text-gray-600 mb-4">
+                        Automatize tarefas repetitivas e reduza custos operacionais em até 60% 
+                        enquanto aumenta a produtividade da equipe.
+                    </p>
+                    <div class="text-2xl font-bold text-green-600" id="monthly-savings-stat">R$ 0</div>
+                    <div class="text-sm text-gray-500">Economia média mensal</div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Velocidade operacional</h3>
+                    <p class="text-gray-600 mb-4">
+                        Processos automatizados são executados 10x mais rápido, 
+                        eliminando gargalos e acelerando entregas.
+                    </p>
+                    <div class="text-2xl font-bold text-blue-600" id="speed-stat">0x</div>
+                    <div class="text-sm text-gray-500">Mais rápido que processos manuais</div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Precisão e confiabilidade</h3>
+                    <p class="text-gray-600 mb-4">
+                        Elimine erros humanos com automação que garante 
+                        99.9% de precisão em todos os processos.
+                    </p>
+                    <div class="text-2xl font-bold text-purple-600" id="precision-stat">0%</div>
+                    <div class="text-sm text-gray-500">Taxa de precisão</div>
+                </div>
+            </div>
+            
+            <!-- ROI Calculator -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8" id="roi-calculator">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                    Calcule o ROI da automação para o seu negócio
+                </h3>
+                
+                <!-- Input Section -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Número de funcionários
+                        </label>
+                        <input type="number" id="employees" value="10" min="1" max="1000" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Horas/mês em tarefas repetitivas
+                        </label>
+                        <input type="number" id="repetitive-hours" value="40" min="1" max="200" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Custo por hora (R$)
+                        </label>
+                        <input type="number" id="hourly-cost" value="25" min="5" max="200" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Custos Atuais (Mensais)</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Tempo gasto em tarefas repetitivas:</span>
+                                <span class="font-semibold" id="current-hours">400h</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Custo por hora de trabalho:</span>
+                                <span class="font-semibold" id="current-hourly-cost">R$ 25</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Número de funcionários:</span>
+                                <span class="font-semibold" id="current-employees">10</span>
+                            </div>
+                            <div class="border-t pt-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Custo total mensal:</span>
+                                    <span class="font-bold text-red-600" id="current-total-cost">R$ 10.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Com Automação</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Tempo economizado (80%):</span>
+                                <span class="font-semibold text-green-600" id="saved-hours">320h</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Custo da automação:</span>
+                                <span class="font-semibold" id="automation-cost">R$ 2.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Tempo liberado:</span>
+                                <span class="font-semibold text-green-600" id="freed-hours">320h/mês</span>
+                            </div>
+                            <div class="border-t pt-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Economia líquida:</span>
+                                    <span class="font-bold text-green-600" id="net-savings">R$ 6.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ROI Results -->
+                <div class="mt-8 p-6 bg-primary/10 rounded-lg text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <div class="text-3xl font-bold text-primary mb-2" id="roi-percentage">300%</div>
+                            <div class="text-gray-600 text-sm">ROI anual</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-600 mb-2" id="monthly-savings">R$ 6.000</div>
+                            <div class="text-gray-600 text-sm">Economia mensal</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-blue-600 mb-2" id="payback-months">2</div>
+                            <div class="text-gray-600 text-sm">Meses para payback</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="mt-6 text-center">
+                    <a href="contato.html" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all inline-flex items-center">
+                        Agendar consultoria gratuita →
+                    </a>
+                </div>
+                
+                <!-- Disclaimer -->
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-primary/30">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div class="text-sm text-gray-600">
+                            <strong class="text-gray-800">Importante:</strong> Os valores apresentados são estimativas baseadas em cenários médios. 
+                            O investimento real em automação pode variar conforme a complexidade dos seus processos, 
+                            integrações necessárias e escopo do projeto. 
+                            <a href="contato.html" class="text-primary hover:underline font-medium">Entre em contato</a> 
+                            para uma avaliação personalizada e orçamento preciso.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Como Funciona
+                    Como implementamos sua automação
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Nosso processo é simples, transparente e focado em resultados
+                    Processo comprovado que já automatizou mais de 500 empresas
                 </p>
             </div>
             
@@ -231,9 +497,10 @@
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-white font-bold text-xl">1</span>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Análise</h3>
+                    <h3 class="text-lg font-semibold mb-2">Auditoria de Processos</h3>
                     <p class="text-gray-600">
-                        Entendemos seus processos e identificamos oportunidades de automação
+                        Mapeamos todos os seus processos e identificamos oportunidades 
+                        de automação com maior impacto no ROI
                     </p>
                 </div>
                 
@@ -241,9 +508,10 @@
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-white font-bold text-xl">2</span>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Desenvolvimento</h3>
+                    <h3 class="text-lg font-semibold mb-2">Desenvolvimento Personalizado</h3>
                     <p class="text-gray-600">
-                        Criamos soluções personalizadas usando as melhores tecnologias de IA
+                        Criamos soluções de automação específicas para seu negócio, 
+                        integrando com seus sistemas existentes
                     </p>
                 </div>
                 
@@ -251,9 +519,10 @@
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-white font-bold text-xl">3</span>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Implementação</h3>
+                    <h3 class="text-lg font-semibold mb-2">Implementação e Treinamento</h3>
                     <p class="text-gray-600">
-                        Integramos a solução em seus sistemas com treinamento completo
+                        Instalamos a automação e treinamos sua equipe para 
+                        maximizar os benefícios da nova tecnologia
                     </p>
                 </div>
                 
@@ -261,9 +530,10 @@
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-white font-bold text-xl">4</span>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Suporte</h3>
+                    <h3 class="text-lg font-semibold mb-2">Otimização Contínua</h3>
                     <p class="text-gray-600">
-                        Acompanhamos o desempenho e otimizamos continuamente
+                        Monitoramos performance e otimizamos continuamente 
+                        para garantir resultados crescentes
                     </p>
                 </div>
             </div>
@@ -282,7 +552,7 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div id="results-section" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
                     <div class="text-4xl font-bold text-primary mb-2 service-response-time">0%</div>
                     <div class="text-gray-600">Redução no tempo de resposta</div>
@@ -305,14 +575,36 @@
     <section class="py-20 bg-primary">
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                Pronto para automatizar seu negócio?
+                Comece sua Transformação Digital Hoje
             </h2>
             <p class="text-xl text-purple-100 mb-8">
-                Entre em contato e descubra como podemos transformar seus processos com IA
+                Junte-se a mais de 500 empresas que já automatizaram seus processos e 
+                estão economizando milhares de reais por mês
             </p>
-                    <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
-                        Teste Grátis por 14 Dias →
-                    </a>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold text-white mb-2">30 Min</div>
+                    <div class="text-purple-100">Consultoria gratuita</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold text-white mb-2">60%</div>
+                    <div class="text-purple-100">Redução garantida de custos</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center hero-cta-glow relative overflow-hidden">
+                    Agendar consultoria gratuita →
+                </a>
+                <a href="contato.html" class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                    Solicitar Orçamento
+                </a>
+            </div>
+            
+            <div class="mt-8 text-purple-200 text-sm">
+                ✓ Consultoria gratuita ✓ Sem compromisso ✓ Proposta personalizada
+            </div>
         </div>
     </section>
 
@@ -399,6 +691,222 @@
                 
                 this.style.setProperty('--mouse-x', x + '%');
                 this.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+
+        // Counting Animation Function
+        function animateCounter(element, targetValue, duration = 2000, suffix = '') {
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let currentValue = startValue;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                
+                if (suffix === 'x') {
+                    element.textContent = Math.floor(currentValue) + 'x';
+                } else if (suffix === '%') {
+                    element.textContent = Math.floor(currentValue) + '%';
+                } else if (suffix === '/7') {
+                    element.textContent = Math.floor(currentValue) + '/7';
+                } else if (suffix === 'currency') {
+                    element.textContent = 'R$ ' + new Intl.NumberFormat('pt-BR').format(Math.floor(currentValue)) + '+';
+                } else if (suffix === 'decimal') {
+                    element.textContent = currentValue.toFixed(1) + '%';
+                } else {
+                    element.textContent = Math.floor(currentValue) + suffix;
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.3, // Trigger when 30% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Hero stats section
+                        if (element.id === 'hero-stats-section') {
+                            animateCounter(document.getElementById('efficiency-stat'), 10, 2000, 'x');
+                            animateCounter(document.getElementById('cost-reduction-stat'), 60, 2000, '%');
+                            animateCounter(document.getElementById('availability-stat'), 24, 2000, '/7');
+                        }
+                        
+                        // Automation benefits section
+                        if (element.id === 'automation-benefits-section') {
+                            animateCounter(document.getElementById('monthly-savings-stat'), 50000, 2000, 'currency');
+                            animateCounter(document.getElementById('speed-stat'), 10, 2000, 'x');
+                            animateCounter(document.getElementById('precision-stat'), 99.9, 2000, 'decimal');
+                        }
+                        
+                        // Results section
+                        if (element.id === 'results-section') {
+                            animateCounter(document.getElementById('service-response-time'), 70, 2000, '%');
+                            animateCounter(document.getElementById('service-cost-savings'), 60, 2000, '%');
+                            animateCounter(document.getElementById('service-satisfaction'), 95, 2000, '%');
+                        }
+                        
+                        // Stop observing this element after animation
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections
+            const heroStatsSection = document.getElementById('hero-stats-section');
+            const automationBenefitsSection = document.getElementById('automation-benefits-section');
+            const resultsSection = document.getElementById('results-section');
+
+            if (heroStatsSection) observer.observe(heroStatsSection);
+            if (automationBenefitsSection) observer.observe(automationBenefitsSection);
+            if (resultsSection) observer.observe(resultsSection);
+        }
+
+        // ROI Calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup scroll-triggered animations
+            setupScrollAnimations();
+            const roiCalculator = {
+                // Input elements
+                employeesInput: document.getElementById('employees'),
+                repetitiveHoursInput: document.getElementById('repetitive-hours'),
+                hourlyCostInput: document.getElementById('hourly-cost'),
+                
+                // Display elements
+                currentHours: document.getElementById('current-hours'),
+                currentHourlyCost: document.getElementById('current-hourly-cost'),
+                currentEmployees: document.getElementById('current-employees'),
+                currentTotalCost: document.getElementById('current-total-cost'),
+                savedHours: document.getElementById('saved-hours'),
+                automationCost: document.getElementById('automation-cost'),
+                freedHours: document.getElementById('freed-hours'),
+                netSavings: document.getElementById('net-savings'),
+                roiPercentage: document.getElementById('roi-percentage'),
+                monthlySavings: document.getElementById('monthly-savings'),
+                paybackMonths: document.getElementById('payback-months'),
+
+                // Configuration
+                automationEfficiency: 0.80, // 80% of repetitive tasks can be automated
+                automationCostPerEmployee: 200, // R$ 200 per employee per month
+
+                init() {
+                    // Add event listeners to all inputs
+                    [this.employeesInput, this.repetitiveHoursInput, this.hourlyCostInput].forEach(input => {
+                        input.addEventListener('input', () => this.calculate());
+                        input.addEventListener('change', () => this.calculate());
+                    });
+
+                    // Initial calculation
+                    this.calculate();
+                },
+
+                calculate() {
+                    const employees = parseInt(this.employeesInput.value) || 0;
+                    const repetitiveHours = parseInt(this.repetitiveHoursInput.value) || 0;
+                    const hourlyCost = parseFloat(this.hourlyCostInput.value) || 0;
+
+                    // Calculate current costs
+                    const totalRepetitiveHours = employees * repetitiveHours;
+                    const currentTotalCostValue = totalRepetitiveHours * hourlyCost;
+
+                    // Calculate automation benefits
+                    const savedHoursValue = Math.round(totalRepetitiveHours * this.automationEfficiency);
+                    const automationCostValue = employees * this.automationCostPerEmployee;
+                    const grossSavings = savedHoursValue * hourlyCost;
+                    const netSavingsValue = grossSavings - automationCostValue;
+
+                    // Calculate ROI and payback
+                    const annualSavings = netSavingsValue * 12;
+                    const annualAutomationCost = automationCostValue * 12;
+                    const roiValue = annualAutomationCost > 0 ? Math.round((annualSavings / annualAutomationCost) * 100) : 0;
+                    const paybackMonthsValue = automationCostValue > 0 ? Math.ceil(automationCostValue / netSavingsValue) : 0;
+
+                    // Update displays with animation
+                    this.updateDisplay(this.currentHours, totalRepetitiveHours + 'h');
+                    this.updateDisplay(this.currentHourlyCost, 'R$ ' + hourlyCost.toFixed(0));
+                    this.updateDisplay(this.currentEmployees, employees.toString());
+                    this.updateDisplay(this.currentTotalCost, 'R$ ' + this.formatNumber(currentTotalCostValue));
+                    
+                    this.updateDisplay(this.savedHours, savedHoursValue + 'h');
+                    this.updateDisplay(this.automationCost, 'R$ ' + this.formatNumber(automationCostValue));
+                    this.updateDisplay(this.freedHours, savedHoursValue + 'h/mês');
+                    this.updateDisplay(this.netSavings, 'R$ ' + this.formatNumber(netSavingsValue));
+                    
+                    this.updateDisplay(this.roiPercentage, roiValue + '%');
+                    this.updateDisplay(this.monthlySavings, 'R$ ' + this.formatNumber(netSavingsValue));
+                    this.updateDisplay(this.paybackMonths, paybackMonthsValue + '');
+
+                    // Update colors based on results
+                    this.updateResultColors(roiValue, netSavingsValue);
+                },
+
+                updateDisplay(element, value) {
+                    if (!element) return;
+                    
+                    // Add animation class
+                    element.style.transform = 'scale(1.05)';
+                    element.style.transition = 'transform 0.2s ease';
+                    
+                    setTimeout(() => {
+                        element.textContent = value;
+                        element.style.transform = 'scale(1)';
+                    }, 100);
+                },
+
+                updateResultColors(roi, savings) {
+                    const roiElement = this.roiPercentage;
+                    const savingsElement = this.monthlySavings;
+                    
+                    // Update ROI color based on value
+                    if (roi >= 200) {
+                        roiElement.className = 'text-3xl font-bold text-green-600 mb-2';
+                    } else if (roi >= 100) {
+                        roiElement.className = 'text-3xl font-bold text-primary mb-2';
+                    } else {
+                        roiElement.className = 'text-3xl font-bold text-orange-500 mb-2';
+                    }
+
+                    // Update savings color
+                    if (savings > 0) {
+                        savingsElement.className = 'text-3xl font-bold text-green-600 mb-2';
+                    } else {
+                        savingsElement.className = 'text-3xl font-bold text-red-600 mb-2';
+                    }
+                },
+
+                formatNumber(num) {
+                    return new Intl.NumberFormat('pt-BR').format(Math.round(num));
+                }
+            };
+
+            // Initialize the calculator
+            roiCalculator.init();
+
+            // Add input validation and formatting
+            [roiCalculator.employeesInput, roiCalculator.repetitiveHoursInput, roiCalculator.hourlyCostInput].forEach(input => {
+                input.addEventListener('blur', function() {
+                    const value = parseFloat(this.value);
+                    const min = parseFloat(this.getAttribute('min'));
+                    const max = parseFloat(this.getAttribute('max'));
+                    
+                    if (value < min) {
+                        this.value = min;
+                        roiCalculator.calculate();
+                    } else if (value > max) {
+                        this.value = max;
+                        roiCalculator.calculate();
+                    }
+                });
             });
         });
     </script>

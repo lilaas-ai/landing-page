@@ -128,12 +128,12 @@
 
 /* Service and Agent Cards */
 .service-card, .agent-card {
-    transition: all 0.3s ease;
+    transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .service-card:hover, .agent-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(94, 27, 104, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(94, 27, 104, 0.08);
 }
 
 /* Form Inputs */
@@ -144,6 +144,20 @@
 .form-input:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(94, 27, 104, 0.1);
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+    position: relative;
+}
+
+.custom-dropdown .dropdown-menu {
+    width: calc(100% - 0px);
+    min-width: 0;
+    max-width: calc(100% - 0px);
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
 }
 
 /* Chat Bubble Animation */
@@ -353,4 +367,76 @@
 /* Pause animation on hover */
 .animate-scroll:hover {
     animation-play-state: paused;
+}
+
+/* Hide company logos section on mobile */
+@media (max-width: 768px) {
+    /* Hide the entire company logos section */
+    section:has(.animate-scroll) {
+        display: none !important;
+    }
+    
+    /* Alternative selector in case :has() isn't supported */
+    .animate-scroll {
+        display: none !important;
+    }
+    
+    /* Hide the parent section containing company logos */
+    section.py-16.bg-white.border-t.border-b.border-gray-100 {
+        display: none !important;
+    }
+    
+    /* Stack items vertically on mobile */
+    .flex.flex-col.sm\\:flex-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .flex.flex-col.sm\\:flex-row span {
+        margin-top: 1rem !important;
+        display: block !important;
+    }
+}
+
+/* Hide animated rectangles and blur circles on mobile devices */
+@media (max-width: 1024px) {
+    .rect-1,
+    .rect-2 {
+        display: none !important;
+    }
+}
+
+/* Hide all background effects on mobile for clean experience */
+@media (max-width: 768px) {
+    .rect-1,
+    .rect-2,
+    .blur-circle-1,
+    .blur-circle-2,
+    .blur-circle-3 {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* Fix organic glow effect bounding box issues on mobile while maintaining effect */
+    .hero-cta-glow {
+        position: relative !important;
+        overflow: visible !important;
+        contain: none !important;
+    }
+    
+    .organic-glow-element,
+    .organic-glow-element-2 {
+        overflow: visible !important;
+        clip-path: none !important;
+        contain: none !important;
+        will-change: transform !important;
+        transform: translateZ(0) !important;
+        backface-visibility: hidden !important;
+        -webkit-transform: translateZ(0) !important;
+        /* Ensure glow elements stay within viewport bounds */
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+    }
 }

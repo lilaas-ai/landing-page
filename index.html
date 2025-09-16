@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lilaas.ai</title>
-    <meta name="description" content="Transforme seu negócio com nossos serviços de automação com IA e agentes conversacionais para WhatsApp e Telegram. Soluções inteligentes para empresas.">
-    <meta name="keywords" content="automação IA, agentes conversacionais, WhatsApp bot, Telegram bot, inteligência artificial, automação empresarial">
+    <meta name="description" content="Agende consultas automaticamente com IA no WhatsApp. Seu assistente virtual inteligente gerencia sua agenda 24/7. Teste grátis por 14 dias.">
+    <meta name="keywords" content="agendamento automático, IA WhatsApp, assistente virtual, agendamento consultas, bot WhatsApp, automação agenda">
     <meta name="author" content="lilaas.ai">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lilaas.ai/">
-    <meta property="og:title" content="lilaas.ai - Automação com IA e Agentes Conversacionais">
-    <meta property="og:description" content="Transforme seu negócio com nossos serviços de automação com IA e agentes conversacionais para WhatsApp e Telegram.">
+    <meta property="og:title" content="lilaas.ai - Agendamento Automático com IA no WhatsApp">
+    <meta property="og:description" content="Agende consultas automaticamente com IA no WhatsApp. Seu assistente virtual inteligente gerencia sua agenda 24/7.">
     <meta property="og:image" content="logo_completo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://lilaas.ai/">
-    <meta property="twitter:title" content="lilaas.ai - Automação com IA e Agentes Conversacionais">
-    <meta property="twitter:description" content="Transforme seu negócio com nossos serviços de automação com IA e agentes conversacionais para WhatsApp e Telegram.">
+    <meta property="twitter:title" content="lilaas.ai - Agendamento Automático com IA no WhatsApp">
+    <meta property="twitter:description" content="Agende consultas automaticamente com IA no WhatsApp. Seu assistente virtual inteligente gerencia sua agenda 24/7.">
     <meta property="twitter:image" content="logo_completo.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -49,8 +49,8 @@
                     <a href="servicos.html" class="text-gray-700 hover:text-primary transition-colors">Serviços</a>
                     <a href="agentes.html" class="text-gray-700 hover:text-primary transition-colors">Agentes IA</a>
                     <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
-                    <a href="#demo" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all pulse-glow">
-                        Teste Grátis 14 Dias →
+                    <a href="lista-espera.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all pulse-glow">
+                        Lista de espera →
                     </a>
                 </div>
                 
@@ -81,7 +81,7 @@
                 <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
                 <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Agentes IA</a>
                 <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
-                <a href="#demo" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis 14 Dias</a>
+                <a href="lista-espera.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Lista de Espera</a>
             </div>
         </div>
     </nav>
@@ -104,37 +104,44 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
             <div class="text-center">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                    Atenda 10x Mais Clientes com IA que 
-                    <span class="text-primary">Funciona no WhatsApp</span>
+                    Agende consultas automaticamente 
+                    <span class="text-primary">com IA no seu WhatsApp</span>
                 </h1>
                 
-                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    Transforme WhatsApp e Telegram na sua central de atendimento 24/7. 
-                    Seus clientes conversam onde já estão—sem downloads ou cadastros complicados.
+                <p class="text-base md:text-lg text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    Seu assistente virtual inteligente agenda consultas, envia confirmações automáticas e lembretes para reduzir faltas. 
+                    Gerencia sua agenda para que você nunca mais perca um cliente por indisponibilidade.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="#demo" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow inline-flex items-center">
-                        Teste Grátis por 14 Dias →
+                    <a href="lista-espera.html" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow inline-flex items-center">
+                        Entrar na lista de espera →
                     </a>
-                    <button hx-get="video-section.html" hx-target="#video-container" hx-swap="innerHTML" hx-trigger="click" hx-on:htmx:after-request="scrollToVideo()" class="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-300 hover:border-primary hover:text-primary transition-all inline-flex items-center">
+                    <!-- TODO: Add demo button -->
+                    <!-- <button hx-get="video-section.html" hx-target="#video-container" hx-swap="innerHTML" hx-trigger="click" hx-on:htmx:after-request="scrollToVideo()" class="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-300 hover:border-primary hover:text-primary transition-all inline-flex items-center">
                         ▶ Ver Demonstração ao Vivo
-                    </button>
+                    </button> -->
                 </div>
                 
-                <!-- Stats -->
+                <!-- Benefits -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto main-stats-section">
                     <div class="text-center">
-                        <div class="text-3xl font-bold text-primary stat-clients">0+</div>
-                        <div class="text-gray-600">Clientes Atendidos</div>
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <img src="lightning.svg" alt="Resposta instantânea" class="w-12 h-12">
+                        </div>
+                        <div class="text-gray-600">Resposta instantânea</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold text-primary stat-uptime">0%</div>
-                        <div class="text-gray-600">Uptime Garantido</div>
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <img src="calendar.svg" alt="Agendamento automático" class="w-12 h-12">
+                        </div>
+                        <div class="text-gray-600">Agendamento automático</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold text-primary stat-support">24/7</div>
-                        <div class="text-gray-600">Suporte Disponível</div>
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <img src="clock.svg" alt="Disponível 24/7" class="w-12 h-12">
+                        </div>
+                        <div class="text-gray-600">Disponível 24/7</div>
                     </div>
                 </div>
             </div>
@@ -142,42 +149,42 @@
     </section>
 
     <!-- Company Logos Bar -->
-    <section class="py-16 bg-white border-t border-b border-gray-100">
+    <!-- <section class="py-16 bg-white border-t border-b border-gray-100">
         <div class="text-center mb-8 px-4 sm:px-6 lg:px-8">
             <p class="text-sm text-gray-500 font-medium tracking-wide">Empresas que confiam na lilaas</p>
         </div>
         <div class="relative overflow-hidden w-full">
-            <div class="animate-scroll items-center">
+            <div class="animate-scroll items-center"> -->
                 <!-- First set of logos -->
-                <img src="company_logo_1.svg" alt="Empresa 1" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_2.svg" alt="Empresa 2" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_3.svg" alt="Empresa 3" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_4.svg" alt="Empresa 4" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_5.svg" alt="Empresa 5" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_6.svg" alt="Empresa 6" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_7.svg" alt="Empresa 7" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_8.svg" alt="Empresa 8" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <!-- <img src="company_logo_1.svg" alt="Empresa 1" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_2.svg" alt="Empresa 2" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_3.svg" alt="Empresa 3" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_4.svg" alt="Empresa 4" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_5.svg" alt="Empresa 5" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_6.svg" alt="Empresa 6" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_7.svg" alt="Empresa 7" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_8.svg" alt="Empresa 8" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity"> -->
                 <!-- Duplicate set for seamless loop -->
-                <img src="company_logo_1.svg" alt="Empresa 1" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_2.svg" alt="Empresa 2" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_3.svg" alt="Empresa 3" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_4.svg" alt="Empresa 4" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_5.svg" alt="Empresa 5" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_6.svg" alt="Empresa 6" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_7.svg" alt="Empresa 7" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_8.svg" alt="Empresa 8" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <!-- <img src="company_logo_1.svg" alt="Empresa 1" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_2.svg" alt="Empresa 2" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_3.svg" alt="Empresa 3" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_4.svg" alt="Empresa 4" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_5.svg" alt="Empresa 5" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_6.svg" alt="Empresa 6" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_7.svg" alt="Empresa 7" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_8.svg" alt="Empresa 8" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity"> -->
                 <!-- Third set for extra smoothness -->
-                <img src="company_logo_1.svg" alt="Empresa 1" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_2.svg" alt="Empresa 2" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_3.svg" alt="Empresa 3" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_4.svg" alt="Empresa 4" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_5.svg" alt="Empresa 5" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_6.svg" alt="Empresa 6" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_7.svg" alt="Empresa 7" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-                <img src="company_logo_8.svg" alt="Empresa 8" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
-            </div>
+                <!-- <img src="company_logo_1.svg" alt="Empresa 1" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_2.svg" alt="Empresa 2" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_3.svg" alt="Empresa 3" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_4.svg" alt="Empresa 4" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_5.svg" alt="Empresa 5" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_6.svg" alt="Empresa 6" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_7.svg" alt="Empresa 7" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity">
+                <img src="company_logo_8.svg" alt="Empresa 8" class="h-24 md:h-12 w-auto opacity-60 hover:opacity-100 transition-opacity"> -->
+            <!-- </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Video Container (HTMX will load content here) -->
     <div id="video-container"></div>
@@ -187,49 +194,49 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Por que <span class="stat-clients">0+</span> empresas escolheram a lilaas.ai?
+                    Por que profissionais escolhem nossa IA para agendamentos?
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Descubra como nossos clientes aumentaram vendas e reduziram custos operacionais
+                    Descubra como nossa solução automatiza completamente o processo de agendamento
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div class="agent-card bg-white p-8 rounded-lg text-center">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Seus Clientes Já Estão Aqui</h3>
-                    <p class="text-gray-600">WhatsApp e Telegram são onde seus clientes já conversam. Sem downloads, sem cadastros complicados—apenas conversas naturais.</p>
+                    <h3 class="text-xl font-semibold mb-2">Agendamento completo 24/7</h3>
+                    <p class="text-gray-600">Agenda consultas, envia confirmações e lembretes automáticos. Seus clientes nunca mais esquecem dos compromissos.</p>
                 </div>
                 
-                <div class="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div class="agent-card bg-white p-8 rounded-lg text-center">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Economize 60% em Custos</h3>
-                    <p class="text-gray-600">Reduza drasticamente o tempo de atendimento e aumente a satisfação dos clientes com respostas instantâneas 24/7.</p>
+                    <h3 class="text-xl font-semibold mb-2">Potencialize seu atendimento</h3>
+                    <p class="text-gray-600">Com agendamentos 24/7, você pode atender mais clientes sem trabalhar mais horas, focando no que realmente importa.</p>
                 </div>
                 
-                <div class="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div class="agent-card bg-white p-8 rounded-lg text-center">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Funcionando em 48h</h3>
-                    <p class="text-gray-600">Implementação rápida e sem complicação. Sua equipe estará atendendo clientes com IA em menos de 2 dias.</p>
+                    <h3 class="text-xl font-semibold mb-2">Configuração simples</h3>
+                    <p class="text-gray-600">Configure sua agenda, horários disponíveis e tipos de consulta. Interface intuitiva para configurar sua IA de agendamento.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -240,9 +247,9 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg">
+                <!-- <div class="bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
                             M
@@ -276,9 +283,9 @@
                         <span class="ml-2 text-sm text-gray-600">5.0</span>
                     </div>
                 </div>
-                
+                 -->
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg">
+                <!-- <div class="bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
                             C
@@ -312,9 +319,9 @@
                         <span class="ml-2 text-sm text-gray-600">5.0</span>
                     </div>
                 </div>
-                
+                 -->
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg">
+                <!-- <div class="bg-white p-8 rounded-xl shadow-lg">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
                             A
@@ -349,9 +356,9 @@
                     </div>
                 </div>
             </div>
-            
+             -->
             <!-- Trust Badges -->
-            <div class="mt-16 text-center">
+            <!-- <div class="mt-16 text-center">
                 <p class="text-sm text-gray-500 font-medium uppercase tracking-wide mb-8">Certificações e Segurança</p>
                 <div class="flex flex-wrap justify-center items-center gap-8">
                     <div class="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm">
@@ -364,7 +371,7 @@
                         <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                         </svg>
-                        <span class="text-sm font-medium text-gray-700">LGPD Compliant</span>
+                        <span class="text-sm font-medium text-gray-700">LGPD</span>
                     </div>
                     <div class="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm">
                         <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -381,29 +388,33 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section id="demo" class="py-20 bg-primary">
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                Junte-se a <span class="stat-clients">0+</span> empresas que já economizam <span class="service-cost-savings">0%</span> em atendimento
+                Seja um dos primeiros a testar nossa IA de agendamento
             </h2>
             <p class="text-xl text-purple-100 mb-8">
-                Teste grátis por 14 dias. Sem cartão de crédito. Sem compromisso. Resultados garantidos ou seu dinheiro de volta.
+                Entre na nossa lista de espera e seja notificado quando o produto estiver disponível. Sem compromisso, apenas interesse.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
-                    Começar Teste Grátis →
+                <a href="lista-espera.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
+                    Entrar na lista de espera →
                 </a>
-                <span class="text-purple-200 text-sm">✓ Implementação em 48h ✓ Suporte 24/7 ✓ Garantia de 30 dias</span>
+                <!-- <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-purple-200 text-sm">
+                    <span>✓ Acesso prioritário</span>
+                    <span>✓ Sem compromisso</span>
+                    <span>✓ Notificação por email</span>
+                </div> -->
             </div>
         </div>
     </section>
 
     <!-- Floating WhatsApp Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da lilaas.ai" 
+        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o agendamento automático com IA da lilaas.ai" 
            target="_blank" 
            class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center space-x-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -423,7 +434,7 @@
                         <img src="lilaas-text.svg" alt="lilaas.ai" class="company-name company-name-white">
                     </div>
                     <p class="text-gray-400 mb-4">
-                        Transformando negócios com automação inteligente e agentes conversacionais de IA.
+                        Automatizando agendamentos profissionais com IA conversacional no WhatsApp.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">

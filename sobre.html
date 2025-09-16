@@ -12,7 +12,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styling with brand color #5e1b68 */
+        .bg-primary:hover {
+            background-color: #4a1552 !important;
+        }
+        
+        .text-primary:hover {
+            color: #4a1552 !important;
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5e1b68',
+                        'primary-dark': '#4a1552',
+                        'primary-light': '#7a2a85'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="config.js?v=1.9"></script>
@@ -38,7 +61,7 @@
                     <a href="agentes.html" class="text-gray-700 hover:text-primary transition-colors">Agentes IA</a>
                     <a href="contato.html" class="text-gray-700 hover:text-primary transition-colors">Contato</a>
                     <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                        Teste Grátis 14 Dias →
+                        Agendar consultoria →
                     </a>
                 </div>
                 
@@ -70,7 +93,7 @@
                 <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
                 <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Agentes IA</a>
                 <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Contato</a>
-                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis 14 Dias</a>
+                <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Agendar Consultoria</a>
             </div>
         </div>
     </nav>
@@ -78,20 +101,50 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    A Startup que <span class="text-primary">Democratizou a IA</span> no Brasil
+            <div class="text-center pt-8">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Sobre a lilaas.ai
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    A startup que <span class="text-primary">democratizou a IA</span> no Brasil
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Desde 2024, ajudamos mais de 500 empresas a economizar milhões em custos operacionais 
-                    com automação inteligente que realmente funciona.
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+                    Desde 2025, nossa missão é democratizar o acesso à automação inteligente, 
+                    tornando-a acessível para empresas de todos os tamanhos.
                 </p>
+                <!-- <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#mission" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow relative overflow-hidden">
+                        Conheça nossa missão →
+                    </a>
+                    <a href="contato.html" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                        Agendar consultoria gratuita
+                    </a>
+                </div> -->
+                
+                <!-- Trust Indicators -->
+                <!-- <div id="hero-stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="companies-stat">0+</div>
+                        <div class="text-gray-600">Empresas atendidas</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="automation-stat">0%</div>
+                        <div class="text-gray-600">Processos automatizados</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="satisfaction-stat">0%</div>
+                        <div class="text-gray-600">Satisfação dos clientes</div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>
 
     <!-- Mission Section -->
-    <section class="py-20 bg-white">
+    <section id="mission" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -111,22 +164,40 @@
                     </p>
                 </div>
                 <div class="bg-gray-100 rounded-lg p-8">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-primary mb-2 stat-clients">0+</div>
-                            <div class="text-gray-600">Empresas Atendidas</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Por que escolher a lilaas.ai?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Tecnologia Brasileira</h4>
+                                <p class="text-gray-600">Desenvolvemos soluções específicas para o mercado brasileiro, entendendo suas necessidades únicas.</p>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-primary mb-2">1M+</div>
-                            <div class="text-gray-600">Mensagens Processadas</div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Suporte Personalizado</h4>
+                                <p class="text-gray-600">Cada projeto recebe atenção dedicada, desde a consultoria inicial até a implementação completa.</p>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-primary mb-2 stat-uptime">0%</div>
-                            <div class="text-gray-600">Uptime</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-primary mb-2 stat-support">24/7</div>
-                            <div class="text-gray-600">Suporte</div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Inovação Constante</h4>
+                                <p class="text-gray-600">Estamos sempre atualizados com as mais recentes tecnologias de IA e automação.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,43 +218,52 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Inovação</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 mb-4">
                         Estamos sempre na vanguarda da tecnologia, buscando as melhores soluções 
                         para nossos clientes.
                     </p>
+                    <div class="text-sm text-primary font-medium">
+                        → Tecnologia de ponta
+                    </div>
                 </div>
                 
-                <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Simplicidade</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-600 mb-4">
                         Transformamos tecnologias complexas em soluções simples e intuitivas 
                         para qualquer empresa.
                     </p>
+                    <div class="text-sm text-primary font-medium">
+                        → Fácil implementação
+                    </div>
                 </div>
                 
-                <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Confiabilidade</h3>
-                    <p class="text-gray-600">
-                        Garantimos 99.9% de uptime e suporte 24/7 para que nossos clientes 
+                    <p class="text-gray-600 mb-4">
+                        Desenvolvemos soluções robustas e oferecemos suporte contínuo para que nossos clientes 
                         nunca fiquem desamparados.
                     </p>
+                    <div class="text-sm text-primary font-medium">
+                        → Suporte 24/7
+                    </div>
                 </div>
             </div>
         </div>
@@ -208,44 +288,75 @@
                             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Thales Meier</h3>
+                    <h3 class="text-xl font-semibold mb-2">Matheus Marcucci</h3>
                     <p class="text-primary font-medium mb-2">CEO & Fundador</p>
                     <p class="text-gray-600">
+                        Líder visionário com experiência em estratégia empresarial e desenvolvimento 
+                        de negócios inovadores no setor de tecnologia.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">João Leniar</h3>
+                    <p class="text-primary font-medium mb-2">COO & Fundador</p>
+                    <p class="text-gray-600">
+                        Especialista em operações e gestão de processos, responsável pela 
+                        otimização operacional e crescimento sustentável da empresa.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Thales Meier</h3>
+                    <p class="text-primary font-medium mb-2">CTO & Fundador</p>
+                    <p class="text-gray-600">
                         Especialista em IA e automação com mais de 5 anos de experiência 
-                        em desenvolvimento de soluções empresariais.
-                    </p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Equipe de IA</h3>
-                    <p class="text-primary font-medium mb-2">Especialistas em Machine Learning</p>
-                    <p class="text-gray-600">
-                        Desenvolvedores especializados em processamento de linguagem natural 
-                        e algoritmos de conversação.
-                    </p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Equipe de Desenvolvimento</h3>
-                    <p class="text-primary font-medium mb-2">Full-Stack Developers</p>
-                    <p class="text-gray-600">
-                        Desenvolvedores experientes focados em criar soluções escaláveis 
-                        e de alta performance.
+                        em desenvolvimento de soluções empresariais e arquitetura de sistemas.
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Results Section -->
+    <!-- <section class="py-20 bg-white sobre-results-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Nossos Resultados
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Números que comprovam nosso compromisso com a excelência
+                </p>
+            </div>
+            
+            <div id="sobre-results-section" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 sobre-companies">0+</div>
+                    <div class="text-gray-600">Empresas transformadas</div>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 sobre-automation">0%</div>
+                    <div class="text-gray-600">Processos automatizados</div>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <div class="text-4xl font-bold text-primary mb-2 sobre-satisfaction">0%</div>
+                    <div class="text-gray-600">Satisfação dos clientes</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="py-20 bg-primary">
@@ -257,7 +368,7 @@
                 Entre em contato e descubra como podemos transformar seu negócio com IA
             </p>
             <a href="contato.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
-                Teste Grátis por 14 Dias →
+                Agendar consultoria gratuita →
             </a>
         </div>
     </section>
@@ -346,6 +457,78 @@
                 this.style.setProperty('--mouse-x', x + '%');
                 this.style.setProperty('--mouse-y', y + '%');
             });
+        });
+
+        // Counting Animation Function
+        function animateCounter(element, targetValue, duration = 2000, suffix = '') {
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let currentValue = startValue;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                
+                if (suffix === 'x') {
+                    element.textContent = Math.floor(currentValue) + 'x';
+                } else if (suffix === '%') {
+                    element.textContent = Math.floor(currentValue) + '%';
+                } else if (suffix === '/7') {
+                    element.textContent = Math.floor(currentValue) + '/7';
+                } else if (suffix === '+') {
+                    element.textContent = Math.floor(currentValue) + '+';
+                } else {
+                    element.textContent = Math.floor(currentValue) + suffix;
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.3, // Trigger when 30% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Hero stats section
+                        if (element.id === 'hero-stats-section') {
+                            animateCounter(document.getElementById('companies-stat'), 500, 2000, '+');
+                            animateCounter(document.getElementById('automation-stat'), 80, 2000, '%');
+                            animateCounter(document.getElementById('satisfaction-stat'), 95, 2000, '%');
+                        }
+                        
+                        // Sobre results section
+                        if (element.id === 'sobre-results-section') {
+                            animateCounter(document.getElementById('sobre-companies'), 500, 2000, '+');
+                            animateCounter(document.getElementById('sobre-automation'), 80, 2000, '%');
+                            animateCounter(document.getElementById('sobre-satisfaction'), 95, 2000, '%');
+                        }
+                        
+                        // Stop observing this element after animation
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections
+            const heroStatsSection = document.getElementById('hero-stats-section');
+            const sobreResultsSection = document.getElementById('sobre-results-section');
+
+            if (heroStatsSection) observer.observe(heroStatsSection);
+            if (sobreResultsSection) observer.observe(sobreResultsSection);
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimations();
         });
     </script>
 </body>

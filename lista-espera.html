@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de espera - lilaas.ai</title>
+    <meta name="description" content="Seja um dos primeiros a testar nossa IA de agendamento automático no WhatsApp. Entre na lista de espera e receba acesso prioritário.">
+    <meta name="keywords" content="lista de espera, agendamento automático, IA WhatsApp, beta test, acesso prioritário">
+    <meta name="author" content="lilaas.ai">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lilaas.ai/lista-espera.html">
+    <meta property="og:title" content="Lista de Espera - lilaas.ai">
+    <meta property="og:description" content="Seja um dos primeiros a testar nossa IA de agendamento automático no WhatsApp.">
+    <meta property="og:image" content="logo_completo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lilaas.ai/lista-espera.html">
+    <meta property="twitter:title" content="Lista de Espera - lilaas.ai">
+    <meta property="twitter:description" content="Seja um dos primeiros a testar nossa IA de agendamento automático no WhatsApp.">
+    <meta property="twitter:image" content="logo_completo.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lilaas-primary': '#5e1b68',
+                        'lilaas-secondary': '#8b5a96'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Simple, clean dropdown animations */
+        select {
+            transition: all 0.2s ease;
+        }
+        
+        select:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(94, 27, 104, 0.15);
+        }
+        
+        select:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Arrow rotation animation */
+        select:focus + div svg {
+            transform: rotate(180deg);
+            transition: transform 0.2s ease;
+        }
+    </style>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="config.js?v=1.9"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-lilaas-primary rounded-full mix-blend-multiply filter blur-3xl floating-animation"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-lilaas-secondary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-lilaas-primary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 4s;"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-lilaas-secondary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 6s;"></div>
+    </div>
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-md w-full" x-data="waitingListForm()">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <!-- lilaas Logo -->
+                <div class="flex justify-center mb-6">
+                    <img src="logo.svg" alt="lilaas.ai" class="w-16 h-16">
+                </div>
+                
+                <!-- Welcome Text -->
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                    O futuro é lilás
+                </h1>
+                <p class="text-base text-gray-600 mb-8">
+                    Seja um dos primeiros a testar nossa IA de agendamento automático no WhatsApp.
+                </p>
+            </div>
+
+            <!-- Action Card -->
+            <div x-show="!submitted" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                    <form @submit.prevent="submitForm()" class="space-y-4" data-waiting-list>
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                Nome completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                x-model="form.name"
+                                required
+                                class="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 placeholder-gray-400 text-gray-900 shadow-sm"
+                                placeholder="Seu nome completo"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Email *
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                x-model="form.email"
+                                required
+                                class="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 placeholder-gray-400 text-gray-900 shadow-sm"
+                                placeholder="seu@email.com"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                WhatsApp *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                x-model="form.phone"
+                                required
+                                class="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 placeholder-gray-400 text-gray-900 shadow-sm"
+                                placeholder="(11) 99999-9999"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="profession" class="block text-sm font-medium text-gray-700 mb-2">
+                                Profissão *
+                            </label>
+                            <div class="relative">
+                                <select 
+                                    id="profession" 
+                                    x-model="form.profession"
+                                    required
+                                    class="w-full px-4 py-3 pr-10 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 text-gray-900 shadow-sm appearance-none cursor-pointer group"
+                                >
+                                    <option value="">Selecione sua profissão</option>
+                                    <option value="medico">Médico</option>
+                                    <option value="dentista">Dentista</option>
+                                    <option value="psicologo">Psicólogo</option>
+                                    <option value="fisioterapeuta">Fisioterapeuta</option>
+                                    <option value="nutricionista">Nutricionista</option>
+                                    <option value="advogado">Advogado</option>
+                                    <option value="consultor">Consultor</option>
+                                    <option value="coach">Coach</option>
+                                    <option value="personal-trainer">Personal Trainer</option>
+                                    <option value="esteticista">Esteticista</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400 transition-all duration-200 ease-in-out group-hover:text-lilaas-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div x-show="form.profession === 'outro'">
+                            <label for="otherProfession" class="block text-sm font-medium text-gray-700 mb-2">
+                                Especifique sua profissão *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="otherProfession" 
+                                x-model="form.otherProfession"
+                                x-bind:required="form.profession === 'outro'"
+                                class="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 placeholder-gray-400 text-gray-900 shadow-sm"
+                                placeholder="Sua profissão"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="clients" class="block text-sm font-medium text-gray-700 mb-2">
+                                Clientes por mês *
+                            </label>
+                            <div class="relative">
+                                <select 
+                                    id="clients" 
+                                    x-model="form.clients"
+                                    required
+                                    class="w-full px-4 py-3 pr-10 bg-gray-50 border-0 rounded-xl focus:ring-2 focus:ring-lilaas-primary focus:bg-white transition-all duration-200 text-gray-900 shadow-sm appearance-none cursor-pointer group"
+                                >
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="1-10">1-10 clientes</option>
+                                    <option value="11-25">11-25 clientes</option>
+                                    <option value="26-50">26-50 clientes</option>
+                                    <option value="51-100">51-100 clientes</option>
+                                    <option value="100+">Mais de 100 clientes</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400 transition-all duration-200 ease-in-out group-hover:text-lilaas-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            :disabled="loading"
+                            class="w-full bg-lilaas-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-sm hover:shadow-md"
+                        >
+                            <span x-show="!loading">Entrar na lista de espera</span>
+                            <span x-show="loading" class="flex items-center">
+                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Enviando...
+                            </span>
+                        </button>
+                    </form>
+
+                    <!-- Terms -->
+                    <p class="text-xs text-gray-500 mt-4 text-center">
+                        Ao continuar, você concorda com nossos 
+                        <a href="termos-servico.html" class="text-lilaas-primary hover:underline">Termos de Serviço</a> 
+                        e 
+                        <a href="politica-privacidade.html" class="text-lilaas-primary hover:underline">Política de Privacidade</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Success State -->
+            <div x-show="submitted" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" class="text-center">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                        Você está na lista! 🎉
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        Obrigado por se interessar pela nossa IA de agendamento. Você receberá um email quando estivermos prontos para o lançamento.
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <p class="text-sm text-blue-800">
+                            <strong>Próximos passos:</strong> Enviaremos atualizações sobre o desenvolvimento e você será um dos primeiros a testar quando estivermos prontos.
+                        </p>
+                    </div>
+                    <a href="index.html" class="inline-block bg-lilaas-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                        Voltar ao início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="absolute bottom-0 left-0 right-0 py-6 text-center">
+        <p class="text-xs text-gray-500">
+            © 2025 lilaas.ai. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script>
+        function waitingListForm() {
+            return {
+                form: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    profession: '',
+                    otherProfession: '',
+                    clients: ''
+                },
+                loading: false,
+                submitted: false,
+
+                async submitForm() {
+                    this.loading = true;
+                    
+                    try {
+                        // Get the form action URL from config
+                        const form = document.querySelector('form[data-waiting-list]');
+                        let actionUrl = form ? form.action : 'https://n8n.lilaas.ai/webhook/63a7af35-6b3d-4275-8dbc-d8b76fbda470';
+                        
+                        // If we're on localhost, use the direct webhook URL
+                        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '0.0.0.0') {
+                            actionUrl = 'https://n8n.lilaas.ai/webhook/63a7af35-6b3d-4275-8dbc-d8b76fbda470';
+                            console.log('Detected localhost, using direct webhook URL');
+                        }
+                        
+                        console.log('Form element:', form);
+                        console.log('Action URL:', actionUrl);
+                        console.log('Form data:', this.form);
+                        
+                        // Prepare form data
+                        const formData = new FormData();
+                        formData.append('name', this.form.name);
+                        formData.append('email', this.form.email);
+                        formData.append('phone', this.form.phone);
+                        formData.append('profession', this.form.profession);
+                        if (this.form.otherProfession) {
+                            formData.append('other_profession', this.form.otherProfession);
+                        }
+                        formData.append('clients', this.form.clients);
+                        
+                        // Send the data
+                        const response = await fetch(actionUrl, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        if (response.ok) {
+                            console.log('Form submitted successfully:', this.form);
+                            this.submitted = true;
+                        } else {
+                            console.error('Form submission failed:', response.statusText);
+                            alert('Erro ao enviar formulário. Tente novamente.');
+                        }
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        alert('Erro ao enviar formulário. Tente novamente.');
+                    }
+                    
+                    this.loading = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

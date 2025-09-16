@@ -4,12 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - lilaas.ai</title>
-    <meta name="description" content="Entre em contato com a lilaas.ai. Solicite um orçamento, teste grátis ou fale com nossos especialistas em automação com IA.">
-    <meta name="keywords" content="contato lilaas, orçamento automação IA, teste grátis, suporte lilaas, consultoria IA">
+    <meta name="description" content="Entre em contato com a lilaas.ai. Agende uma consultoria gratuita, solicite um orçamento ou fale com nossos especialistas em automação com IA.">
+    <meta name="keywords" content="contato lilaas, orçamento automação IA, consultoria gratuita, suporte lilaas, agendar consultoria IA">
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom form styling with brand color #5e1b68 */
+        .form-input:focus {
+            border-color: #5e1b68 !important;
+            box-shadow: 0 0 0 3px rgba(94, 27, 104, 0.1) !important;
+        }
+        
+        .form-input:focus-within {
+            border-color: #5e1b68 !important;
+        }
+        
+        /* Custom dropdown focus styling */
+        .custom-dropdown button:focus {
+            border-color: #5e1b68 !important;
+            box-shadow: 0 0 0 3px rgba(94, 27, 104, 0.1) !important;
+        }
+        
+        /* Checkbox styling */
+        input[type="checkbox"]:checked {
+            background-color: #5e1b68 !important;
+            border-color: #5e1b68 !important;
+        }
+        
+        /* Button hover effects */
+        .bg-primary:hover {
+            background-color: #4a1552 !important;
+        }
+        
+        /* Link hover effects */
+        .text-primary:hover {
+            color: #4a1552 !important;
+        }
+        
+        /* WhatsApp button hover - ensure text stays white */
+        a[href*="wa.me"]:hover {
+            color: white !important;
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5e1b68',
+                        'primary-dark': '#4a1552',
+                        'primary-light': '#7a2a85'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="config.js?v=1.9"></script>
@@ -35,7 +86,7 @@
                     <a href="agentes.html" class="text-gray-700 hover:text-primary transition-colors">Agentes IA</a>
                     <a href="contato.html" class="text-primary font-semibold">Contato</a>
                     <a href="#form" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">
-                        Teste Grátis 14 Dias →
+                        Agendar consultoria →
                     </a>
                 </div>
                 
@@ -67,7 +118,7 @@
                 <a href="servicos.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Serviços</a>
                 <a href="agentes.html" @click="mobileMenuOpen = false" class="block py-2 text-gray-700 hover:text-primary">Agentes IA</a>
                 <a href="contato.html" @click="mobileMenuOpen = false" class="block py-2 text-primary font-semibold">Contato</a>
-                <a href="#form" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Teste Grátis 14 Dias</a>
+                <a href="#form" @click="mobileMenuOpen = false" class="block py-2 bg-primary text-white rounded-lg text-center">Agendar Consultoria</a>
             </div>
         </div>
     </nav>
@@ -75,14 +126,44 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    Comece Seu <span class="text-primary">Teste Grátis Hoje</span>
+            <div class="text-center pt-8">
+                <div class="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Consultoria gratuita
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Agende sua <span class="text-primary">consultoria gratuita</span>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Junte-se a 500+ empresas que já economizam 60% em custos de atendimento. 
-                    Teste grátis por 14 dias, sem cartão de crédito, sem compromisso.
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+                    Descubra como podemos transformar seus processos com automação inteligente. 
+                    Consultoria gratuita de 30 minutos, sem compromisso.
                 </p>
+                <!-- <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#form" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hero-cta-glow relative overflow-hidden">
+                        Agendar consultoria →
+                    </a>
+                    <a href="https://wa.me/+5519997172834" class="border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                        Falar no WhatsApp
+                    </a>
+                </div> -->
+                
+                <!-- Trust Indicators -->
+                <div id="hero-stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="response-time-stat">2h</div>
+                        <div class="text-gray-600">Tempo de resposta</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="consultation-time-stat">30min</div>
+                        <div class="text-gray-600">Consultoria gratuita</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-2" id="satisfaction-stat">100%</div>
+                        <div class="text-gray-600">Sem compromisso</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -94,11 +175,11 @@
                 <!-- Contact Form -->
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">
-                        Comece Seu Teste Grátis Agora
+                        Agende sua consultoria gratuita
                     </h2>
                     <p class="text-gray-600 mb-8">
-                        Preencha o formulário abaixo e receba acesso imediato ao seu teste grátis por 14 dias. 
-                        Nossa equipe entrará em contato em até 2 horas para configurar tudo.
+                        Preencha o formulário abaixo e nossa equipe entrará em contato em até 2 horas 
+                        para agendar sua consultoria gratuita de 30 minutos.
                     </p>
                     
                     <form hx-post="https://formspree.io/f/YOUR_FORM_ID" hx-target="#form-result" class="space-y-6" data-contact-form>
@@ -140,26 +221,74 @@
                             <label for="servico" class="block text-sm font-medium text-gray-700 mb-2">
                                 Serviço de Interesse *
                             </label>
-                            <select id="servico" name="servico" required
-                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                                <option value="">Selecione um serviço</option>
-                                <option value="chatbot-whatsapp">Chatbot para WhatsApp</option>
-                                <option value="chatbot-telegram">Chatbot para Telegram</option>
-                                <option value="automatizacao-processos">Automação de Processos</option>
-                                <option value="agente-atendimento">Agente de Atendimento</option>
-                                <option value="agente-vendas">Agente de Vendas</option>
-                                <option value="integracao-sistemas">Integração de Sistemas</option>
-                                <option value="consultoria">Consultoria em IA</option>
-                                <option value="outro">Outro</option>
-                            </select>
+                            <div class="custom-dropdown" x-data="{ open: false, selected: '', selectedText: 'Selecione um serviço' }" x-init="$nextTick(() => { const button = $el.querySelector('button'); const dropdown = $el.querySelector('.dropdown-menu'); if (button && dropdown) { dropdown.style.width = button.offsetWidth + 'px'; } })">
+                                <input type="hidden" name="servico" x-model="selected" required>
+                                <button type="button" @click="open = !open" 
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-left flex justify-between items-center hover:border-gray-400 transition-all duration-300"
+                                        :class="{ 'border-primary ring-2 ring-primary ring-opacity-20': open }">
+                                    <span x-text="selectedText" class="text-gray-700"></span>
+                                    <svg class="w-5 h-5 text-gray-400 transition-transform duration-300" 
+                                         :class="{ 'rotate-180': open }" 
+                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div x-show="open" 
+                                     x-transition:enter="transition ease-out duration-300"
+                                     x-transition:enter-start="opacity-0 transform scale-95 -translate-y-2"
+                                     x-transition:enter-end="opacity-100 transform scale-100 translate-y-0"
+                                     x-transition:leave="transition ease-in duration-200"
+                                     x-transition:leave-start="opacity-100 transform scale-100 translate-y-0"
+                                     x-transition:leave-end="opacity-0 transform scale-95 -translate-y-2"
+                                     class="dropdown-menu absolute z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                    <div class="py-1">
+                                        <button type="button" @click="selected = ''; selectedText = 'Selecione um serviço'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-500 hover:bg-gray-50 transition-colors duration-200">
+                                            Selecione um serviço
+                                        </button>
+                                        <button type="button" @click="selected = 'chatbot-whatsapp'; selectedText = 'Chatbot para WhatsApp'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Chatbot para WhatsApp
+                                        </button>
+                                        <button type="button" @click="selected = 'chatbot-telegram'; selectedText = 'Chatbot para Telegram'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Chatbot para Telegram
+                                        </button>
+                                        <button type="button" @click="selected = 'automatizacao-processos'; selectedText = 'Automação de Processos'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Automação de Processos
+                                        </button>
+                                        <button type="button" @click="selected = 'agente-atendimento'; selectedText = 'Agente de Atendimento'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Agente de Atendimento
+                                        </button>
+                                        <button type="button" @click="selected = 'agente-vendas'; selectedText = 'Agente de Vendas'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Agente de Vendas
+                                        </button>
+                                        <button type="button" @click="selected = 'integracao-sistemas'; selectedText = 'Integração de Sistemas'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Integração de Sistemas
+                                        </button>
+                                        <button type="button" @click="selected = 'consultoria'; selectedText = 'Consultoria em IA'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Consultoria em IA
+                                        </button>
+                                        <button type="button" @click="selected = 'outro'; selectedText = 'Outro'; open = false"
+                                                class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                                            Outro
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div>
                             <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">
-                                Descreva sua necessidade *
+                                Descreva sua necessidade de automação *
                             </label>
                             <textarea id="mensagem" name="mensagem" rows="5" required
-                                      placeholder="Conte-nos mais sobre seu projeto, objetivos e como podemos ajudar..."
+                                      placeholder="Conte-nos sobre seus processos atuais, desafios e objetivos de automação. Quanto mais detalhes, melhor poderemos ajudá-lo na consultoria..."
                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
                         </div>
                         
@@ -168,13 +297,13 @@
                                    class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
                             <label for="privacidade" class="ml-2 text-sm text-gray-600">
                                 Concordo com o processamento dos meus dados pessoais conforme a 
-                                <a href="#" class="text-primary hover:underline">Política de Privacidade</a> *
+                                <a href="politica-privacidade.html" class="text-primary hover:underline">Política de Privacidade</a> *
                             </label>
                         </div>
                         
                         <button type="submit"
                                 class="w-full bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                            Começar Teste Grátis Agora →
+                            Agendar consultoria gratuita →
                         </button>
                         
                         <div id="form-result" class="mt-4"></div>
@@ -184,26 +313,26 @@
                 <!-- Contact Information -->
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">
-                        Outras Formas de Contato
+                        Outras formas de contato
                     </h2>
                     
                     <div class="space-y-8">
                         <!-- Email -->
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <a href="mailto:matheus@lilaas.ai" class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4 flex-shrink-0 hover:bg-opacity-90 transition-all cursor-pointer contact-email-link">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
-                            </div>
+                            </a>
                             <div>
                                 <h3 class="text-lg font-semibold mb-2">E-mail</h3>
                                 <p class="text-gray-600 mb-1 contact-email">contato@lilaas.ai</p>
-                                <p class="text-sm text-gray-500">Resposta em até 24 horas</p>
+                                <p class="text-sm text-gray-500">Resposta em até 2 horas para agendar consultoria</p>
                             </div>
                         </div>
                         
-                        <!-- Phone -->
-                        <div class="flex items-start">
+                        <!-- Telefone -->
+                        <!-- <div class="flex items-start">
                             <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -214,55 +343,116 @@
                                 <p class="text-gray-600 mb-1 contact-phone">+55 (11) 99999-9999</p>
                                 <p class="text-sm text-gray-500">Segunda a Sexta, 9h às 18h</p>
                             </div>
-                        </div>
+                        </div> -->
                         
                         <!-- WhatsApp -->
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <a href="https://wa.me/+5519997172834" class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 hover:bg-opacity-90 transition-all cursor-pointer contact-whatsapp-link">
                                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                                 </svg>
-                            </div>
+                            </a>
                             <div>
                                 <h3 class="text-lg font-semibold mb-2">WhatsApp</h3>
                                 <p class="text-gray-600 mb-1 contact-phone">+55 (11) 99999-9999</p>
-                                <p class="text-sm text-gray-500">Resposta rápida via chat</p>
+                                <p class="text-sm text-gray-500">Agendamento rápido via chat</p>
                             </div>
                         </div>
                         
                     </div>
                     
                     <!-- Quick Actions -->
-                    <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+                    <!-- <div class="mt-12 p-6 bg-gray-50 rounded-lg">
                         <h3 class="text-lg font-semibold mb-4">Ações Rápidas</h3>
                         <div class="space-y-3">
                             <a href="#" class="flex items-center text-primary hover:text-opacity-80 transition-colors" data-service-catalog>
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
-                                Baixar Catálogo de Serviços
+                                Baixar catálogo de serviços
                             </a>
                             <a href="#" class="flex items-center text-primary hover:text-opacity-80 transition-colors" data-book-meeting>
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
-                                Agendar Reunião Online
+                                Agendar reunião online
                             </a>
                             <a href="#" class="flex items-center text-primary hover:text-opacity-80 transition-colors">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
-                                Teste Grátis por 14 dias
+                                Consultoria gratuita de 30 min
                             </a>
                         </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Por que agendar uma consultoria?
+                </h2>
+                <!-- <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nossa consultoria gratuita já ajudou mais de 500 empresas a identificar oportunidades de automação
+                </p> -->
+            </div>
+            
+            <div id="benefits-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                     </div>
+                    <h3 class="text-xl font-semibold mb-3">Análise personalizada</h3>
+                    <p class="text-gray-600 mb-4">
+                        Analisamos seus processos específicos e identificamos oportunidades 
+                        de automação com maior impacto no seu negócio.
+                    </p>
+                    <div class="text-2xl font-bold text-green-600" id="analysis-stat">100%</div>
+                    <div class="text-sm text-gray-500">Personalizado para seu negócio</div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">ROI estimado</h3>
+                    <p class="text-gray-600 mb-4">
+                        Calculamos o retorno sobre investimento esperado e apresentamos 
+                        um cronograma detalhado de implementação.
+                    </p>
+                    <div class="text-2xl font-bold text-blue-600" id="roi-stat">300%</div>
+                    <div class="text-sm text-gray-500">ROI médio anual</div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Sem compromisso</h3>
+                    <p class="text-gray-600 mb-4">
+                        Consultoria completamente gratuita e sem qualquer compromisso. 
+                        Você recebe valor mesmo sem contratar nossos serviços.
+                    </p>
+                    <div class="text-2xl font-bold text-purple-600" id="commitment-stat">0%</div>
+                    <div class="text-sm text-gray-500">Compromisso após consultoria</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -307,6 +497,18 @@
                     </button>
                     <div x-show="open" x-transition class="px-6 pb-4 text-gray-600">
                         Nossos preços variam conforme a complexidade e escala do projeto. Oferecemos planos flexíveis que se adaptam ao tamanho do seu negócio, desde startups até grandes empresas. Entre em contato para receber um orçamento personalizado sem compromisso.
+                    </div>
+                </div>
+                
+                <div x-data="{ open: false }" class="bg-white rounded-lg border border-gray-200">
+                    <button @click="open = !open" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold">Como funciona a consultoria gratuita?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div x-show="open" x-transition class="px-6 pb-4 text-gray-600">
+                        A consultoria gratuita dura 30 minutos e é realizada online. Durante este tempo, analisamos seus processos atuais, identificamos oportunidades de automação e apresentamos uma proposta personalizada com cronograma e investimento. Não há compromisso algum após a consultoria.
                     </div>
                 </div>
                 
@@ -410,13 +612,87 @@
                 this.style.setProperty('--mouse-y', y + '%');
             });
         });
+
+        // Counting Animation Function
+        function animateCounter(element, targetValue, duration = 2000, suffix = '') {
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let currentValue = startValue;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                
+                if (suffix === 'x') {
+                    element.textContent = Math.floor(currentValue) + 'x';
+                } else if (suffix === '%') {
+                    element.textContent = Math.floor(currentValue) + '%';
+                } else if (suffix === '/7') {
+                    element.textContent = Math.floor(currentValue) + '/7';
+                } else if (suffix === 'h') {
+                    element.textContent = Math.floor(currentValue) + 'h';
+                } else if (suffix === 'min') {
+                    element.textContent = Math.floor(currentValue) + 'min';
+                } else {
+                    element.textContent = Math.floor(currentValue) + suffix;
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.3, // Trigger when 30% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Hero stats section
+                        if (element.id === 'hero-stats-section') {
+                            animateCounter(document.getElementById('response-time-stat'), 2, 2000, 'h');
+                            animateCounter(document.getElementById('consultation-time-stat'), 30, 2000, 'min');
+                            animateCounter(document.getElementById('satisfaction-stat'), 100, 2000, '%');
+                        }
+                        
+                        // Benefits section
+                        if (element.id === 'benefits-section') {
+                            animateCounter(document.getElementById('analysis-stat'), 100, 2000, '%');
+                            animateCounter(document.getElementById('roi-stat'), 300, 2000, '%');
+                            animateCounter(document.getElementById('commitment-stat'), 0, 2000, '%');
+                        }
+                        
+                        // Stop observing this element after animation
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections
+            const heroStatsSection = document.getElementById('hero-stats-section');
+            const benefitsSection = document.getElementById('benefits-section');
+
+            if (heroStatsSection) observer.observe(heroStatsSection);
+            if (benefitsSection) observer.observe(benefitsSection);
+        }
+
+        // Initialize animations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimations();
+        });
         
         // Form submission handling
         document.addEventListener('htmx:afterRequest', function(event) {
             if (event.detail.xhr.status === 200) {
                 document.getElementById('form-result').innerHTML = 
                     '<div class="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">' +
-                    'Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.' +
+                    'Obrigado! Sua solicitação de consultoria foi enviada com sucesso. Entraremos em contato em até 2 horas para agendar sua consultoria gratuita.' +
                     '</div>';
                 event.target.reset();
             } else {

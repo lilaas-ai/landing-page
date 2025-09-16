@@ -12,8 +12,8 @@ const CONFIG = {
     
     contact: {
         email: "matheus@lilaas.ai",
-        phone: "+55 (19) 99717-2834",
-        whatsapp: "+5519997172834",
+        phone: "+55 (12) 98260-0314",
+        whatsapp: "+5512982600314",
         address: "São José dos Campos, SP - Brasil"
     },
     
@@ -25,7 +25,8 @@ const CONFIG = {
     
     forms: {
         contact_form_url: "https://formspree.io/f/YOUR_FORM_ID",
-        newsletter_url: "https://formspree.io/f/YOUR_NEWSLETTER_ID"
+        newsletter_url: "https://formspree.io/f/YOUR_NEWSLETTER_ID",
+        waiting_list_url: "https://n8n.lilaas.ai/webhook/63a7af35-6b3d-4275-8dbc-d8b76fbda470"
     },
     
     links: {
@@ -127,9 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateContactInfo() {
+    console.log('Updating contact info...', CONFIG.contact);
+    
     // Update email links
     document.querySelectorAll('a[href*="contato@lilaas.ai"]').forEach(link => {
         link.href = `mailto:${CONFIG.contact.email}`;
+    });
+    
+    // Update contact email link buttons
+    const emailLinks = document.querySelectorAll('.contact-email-link');
+    console.log('Found email links:', emailLinks.length);
+    emailLinks.forEach(link => {
+        link.href = `mailto:${CONFIG.contact.email}`;
+        console.log('Updated email link to:', link.href);
     });
     
     // Update phone links
@@ -140,6 +151,14 @@ function updateContactInfo() {
     // Update WhatsApp links
     document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
         link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
+    });
+    
+    // Update contact WhatsApp link buttons
+    const whatsappLinks = document.querySelectorAll('.contact-whatsapp-link');
+    console.log('Found WhatsApp links:', whatsappLinks.length);
+    whatsappLinks.forEach(link => {
+        link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
+        console.log('Updated WhatsApp link to:', link.href);
     });
     
     // Update contact text
@@ -166,6 +185,12 @@ function updateFormActions() {
     // Update newsletter form action
     document.querySelectorAll('form[data-newsletter]').forEach(form => {
         form.action = CONFIG.forms.newsletter_url;
+    });
+    
+    // Update waiting list form action
+    document.querySelectorAll('form[data-waiting-list]').forEach(form => {
+        form.action = CONFIG.forms.waiting_list_url;
+        console.log('Updated waiting list form action to:', form.action);
     });
 }
 
