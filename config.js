@@ -24,7 +24,7 @@ const CONFIG = {
     },
     
     forms: {
-        contact_form_url: "https://formspree.io/f/YOUR_FORM_ID",
+        contact_form_url: "https://n8n.lilaas.ai/webhook/55c843d2-b24f-4546-aa87-42630bd828a7",
         newsletter_url: "https://formspree.io/f/YOUR_NEWSLETTER_ID",
         waiting_list_url: "https://n8n.lilaas.ai/webhook/63a7af35-6b3d-4275-8dbc-d8b76fbda470"
     },
