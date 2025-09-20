@@ -67,7 +67,22 @@
         }
     }
     </script>
-    
+    <style>
+        @media (max-width: 640px) { /* sm breakpoint */
+            html, body {
+                position: fixed;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+            }
+            main {
+                /* Header height is p-4 (1rem*2) + h-10 (2.5rem) = 4.5rem = 72px */
+                height: calc(100vh - 72px);
+                /* The original pb-12 (3rem) is too much for mobile and causes scroll */
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans" x-data="dynamicContactForm()">
     <!-- Background Elements -->
