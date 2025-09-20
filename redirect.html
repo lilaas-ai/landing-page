@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato - lilaas.ai</title>
+    <meta name="description" content="Preencha nosso formulário de contato para saber mais sobre nossos serviços de automação com IA.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Formulário de Contato - lilaas.ai">
+    <meta property="og:description" content="Preencha nosso formulário de contato para saber mais sobre nossos serviços de automação com IA.">
+    <meta property="og:image" content="logo_completo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Formulário de Contato - lilaas.ai">
+    <meta property="twitter:description" content="Preencha nosso formulário de contato para saber mais sobre nossos serviços de automação com IA.">
+    <meta property="twitter:image" content="logo_completo.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lilaas-primary': '#5e1b68',
+                        'lilaas-secondary': '#8b5a96'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="config.js?v=1.9"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans relative overflow-hidden" x-data="redirectApp()">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-lilaas-primary rounded-full mix-blend-multiply filter blur-3xl floating-animation"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-lilaas-secondary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-lilaas-primary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 4s;"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-lilaas-secondary rounded-full mix-blend-multiply filter blur-3xl floating-animation" style="animation-delay: 6s;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-md w-full">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <!-- lilaas Logo -->
+                <div class="flex justify-center mb-6">
+                    <img src="logo.svg" alt="lilaas.ai" class="w-16 h-16">
+                </div>
+                
+                <!-- Welcome Text -->
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                    O futuro é lilás
+                </h1>
+                <p class="text-base text-gray-600 mb-8">
+                    Você está sendo redirecionado para nosso formulário de contato.
+                </p>
+            </div>
+
+            <!-- Action Card -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <!-- Loading Animation -->
+                <div class="text-center mb-6">
+                    <div class="relative w-16 h-16 mx-auto mb-4">
+                        <!-- Outer ring -->
+                        <div class="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
+                        <!-- Spinning ring -->
+                        <div class="absolute inset-0 border-4 border-transparent border-t-lilaas-primary rounded-full animate-spin"></div>
+                        <!-- Inner pulse -->
+                        <div class="absolute inset-2 bg-lilaas-primary rounded-full animate-pulse opacity-20"></div>
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-900 mb-2">
+                        Redirecionando para o formulário...
+                    </h2>
+                    <p class="text-sm text-gray-500">
+                        Preencha o formulário para saber mais sobre nossos serviços de automação com IA.
+                    </p>
+                </div>
+
+                <!-- Countdown -->
+                <div class="text-center mb-6" x-show="countdown > 0">
+                    <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                        <p class="text-sm text-gray-600 mb-2">
+                            Redirecionamento automático em:
+                        </p>
+                        <div class="text-3xl font-bold text-lilaas-primary" x-text="countdown"></div>
+                        <p class="text-xs text-gray-500 mt-1">segundos</p>
+                    </div>
+                </div>
+
+                <!-- Manual Redirect Button -->
+                <div class="text-center mb-4">
+                    <a href="https://form.typeform.com/to/MHQIpiks" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full bg-lilaas-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-opacity-90 transition-all duration-200 flex items-center justify-center shadow-sm hover:shadow-md">
+                        <span>Acessar Formulário</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Back to Home -->
+            <div class="text-center mt-6">
+                <a href="/" class="text-lilaas-primary hover:text-opacity-80 transition-colors text-sm">
+                    ← Voltar ao início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="absolute bottom-0 left-0 right-0 py-6 text-center">
+        <p class="text-xs text-gray-500">
+            © 2025 lilaas.ai. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script>
+        function redirectApp() {
+            return {
+                redirectUrl: 'https://form.typeform.com/to/MHQIpiks',
+                countdown: 5,
+                error: false,
+                redirectTimer: null,
+                countdownTimer: null,
+
+                init() {
+                    this.startCountdown();
+                    this.startRedirect();
+                },
+
+                startCountdown() {
+                    this.countdownTimer = setInterval(() => {
+                        this.countdown--;
+                        if (this.countdown <= 0) {
+                            clearInterval(this.countdownTimer);
+                        }
+                    }, 1000);
+                },
+
+                startRedirect() {
+                    this.redirectTimer = setTimeout(() => {
+                        this.performRedirect();
+                    }, 5000); // 5 seconds delay
+                },
+
+                performRedirect() {
+                    try {
+                        // Try to redirect in the same window
+                        window.location.href = this.redirectUrl;
+                    } catch (e) {
+                        this.error = true;
+                    }
+                },
+
+                retryRedirect() {
+                    this.error = false;
+                    this.countdown = 5;
+                    this.startCountdown();
+                    this.startRedirect();
+                }
+            }
+        }
+
+        // Clean up timers on page unload
+        window.addEventListener('beforeunload', () => {
+            if (window.Alpine && window.Alpine.store) {
+                const app = document.querySelector('[x-data="redirectApp()"]');
+                if (app && app._x_dataStack && app._x_dataStack[0]) {
+                    const data = app._x_dataStack[0];
+                    if (data.redirectTimer) clearTimeout(data.redirectTimer);
+                    if (data.countdownTimer) clearInterval(data.countdownTimer);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
